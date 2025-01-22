@@ -6,7 +6,7 @@
 /*   By: makkach <makkach@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 18:19:26 by makkach           #+#    #+#             */
-/*   Updated: 2025/01/22 12:51:04 by makkach          ###   ########.fr       */
+/*   Updated: 2025/01/22 16:25:19 by makkach          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,14 @@ static void push(t_stack **src, t_stack **dest)
 {
     t_stack *tmp;
     t_stack *tmp2;
+    t_stack *tmp3;
     if (!(*src))
         return ;
     if (!dest)
     {
         tmp = (*src)->next;
-        *dest = *src;
+        tmp3 = *src;
+        dest = &tmp3;
         *src = tmp;
         (*dest)->next = NULL;
     }

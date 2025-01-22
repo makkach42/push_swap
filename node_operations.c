@@ -6,11 +6,11 @@
 /*   By: makkach <makkach@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 15:00:03 by makkach           #+#    #+#             */
-/*   Updated: 2025/01/19 10:16:09 by makkach          ###   ########.fr       */
+/*   Updated: 2025/01/22 15:19:32 by makkach          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.c"
+// #include "push_swap.c"
 
 // void current_index(t_stack *c)
 // {

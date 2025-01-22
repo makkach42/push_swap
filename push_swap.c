@@ -6,7 +6,7 @@
 /*   By: makkach <makkach@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 14:50:00 by makkach           #+#    #+#             */
-/*   Updated: 2025/01/22 15:00:42 by makkach          ###   ########.fr       */
+/*   Updated: 2025/01/22 16:28:20 by makkach          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ static t_stack *set_next(t_stack **tmp, int counter)
     free(tmp);
     return (tmp3);
 }
-t_stack *init_stack(char **argv, int count)
+static t_stack *init_stack(char **argv, int count)
 {
     t_stack **tmp;
     t_stack *tmp3;
@@ -87,14 +87,14 @@ t_stack *init_stack(char **argv, int count)
     tmp = (t_stack **)malloc(sizeof(t_stack *) * count);
     if (!tmp)
         return (free(tmp), NULL);
-    while (counter + 1 < count)
+    while (counter < count)
     {
         tmp[counter] = malloc(sizeof(t_stack));
         if (!tmp[counter])
             return (NULL);
         if (counter == 0)
             tmp3 = tmp[counter];
-        tmp[counter]->data = ft_atoi(argv[counter + 1]);
+        tmp[counter]->data = ft_atoi(argv[counter]);
         if (counter + 1 == count)
             tmp[counter]->next = NULL;
         counter++;
@@ -116,9 +116,7 @@ static int    dup_checker(t_stack **c)
         while (next)
         {
             if (current->data == next->data)
-            {
                 return (1);
-            }
             next = next->next;
         }
         current = current->next;
@@ -129,7 +127,7 @@ static int    dup_checker(t_stack **c)
 int main(int argc, char **argv)
 {
     t_stack **a;
-    t_stack **b;
+    t_stack *b;
     t_stack *tmp;
     a = NULL;
     b = NULL;
@@ -148,11 +146,11 @@ int main(int argc, char **argv)
         return (write(1, "ERROR\n", 6), 0);
     if (ifsorted(a) == 1)
         return (0);
-    if (stack_lenth(a) == 3)
+    if (stack_lenth(a) == 2)
+        sa(*a);
+    else if (stack_lenth(a) == 3)
         return (a = &tmp, sortthree(a), 0);
-    else if (stack_lenth(a) == 2)
-        return (a = &tmp, sa(*a), 0);
     else
-        sort_stack(a, b);
+        sort_stack(a, &b);
     return (0);
 }

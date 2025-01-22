@@ -6,12 +6,11 @@
 /*   By: makkach <makkach@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 10:24:52 by makkach           #+#    #+#             */
-/*   Updated: 2025/01/16 16:30:56 by makkach          ###   ########.fr       */
+/*   Updated: 2025/01/22 15:19:52 by makkach          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.c"
-#include <stdio.h>
+#include "push_swap.h"
 
 int    pars(char **argv, int argc)
 {
@@ -22,15 +21,8 @@ int    pars(char **argv, int argc)
         return (0);
     while (i < argc)
     {
-        // printf("{%d}\n{%d}\n", argc, i);
-        // printf("[%s]\n", argv[i]);
         if (valid(argv[i]) == 0 || range_check(argv[i]) == 0)
-        {
             return (1);
-        }
-        // else
-        //     // write(1, "OK\n", 3);
-        //     return (0);
         i++;
     }
     return (0);
@@ -57,7 +49,6 @@ int valid(char *str)
     }
     return (1);
 }
-
 
 int range_check(char *str)
 {
@@ -86,22 +77,3 @@ int ifsorted(t_stack **a)
     }
     return (1);
 }
-
-// int dups(t_stack *c, int nbr)
-// {
-//     t_stack *tmp;
-
-//     tmp = c->next;
-//     while (tmp && tmp->next)
-//     {
-//         if (tmp->data == nbr)
-//         {
-//             // write(1, "ErorR\n", 6);
-//             return (1);
-//         }
-//         tmp = tmp->next;
-//         // printf("AAA\n");
-//     }
-//     // write(1, "OK\n", 3);
-//     return (0);
-// }

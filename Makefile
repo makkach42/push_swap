@@ -6,7 +6,7 @@
 #    By: makkach <makkach@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/09 10:43:12 by makkach           #+#    #+#              #
-#    Updated: 2025/01/22 15:02:04 by makkach          ###   ########.fr        #
+#    Updated: 2025/01/22 16:14:08 by makkach          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,13 +18,13 @@ NAME = push_swap
 
 CC = cc
 
-CFLAGS = -Werror -Wall -Wextra
+CFLAGS = -Werror -Wall -Wextra #-g -fsanitize=address
 
 RM = rm -rf
 
 all : $(NAME)
 
-$(NAME):  $(objects)
+$(NAME):  $(objects) push_swap.h
 		$(CC) $(CFLAGS) $(objects) -o $(NAME)
 
 clean:
