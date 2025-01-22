@@ -6,7 +6,7 @@
 /*   By: makkach <makkach@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 18:08:34 by makkach           #+#    #+#             */
-/*   Updated: 2025/01/22 12:16:44 by makkach          ###   ########.fr       */
+/*   Updated: 2025/01/22 14:35:06 by makkach          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,12 +42,35 @@ t_stack *find_highest(t_stack **c)
     }
     return (highest);
 }
-
+// t_stack *find_max(t_stack *c)
+// {
+//     t_stack *tmp;
+//     int highest;
+//     highest = 0;
+//     tmp = c;
+//     while (c)
+//     {
+//         if (c->data > highest)
+//             highest = c->data;
+//         else
+//             c = c->next;
+//     }
+//     c = tmp;
+//     while (c)
+//     {
+//         if (c->data == highest)
+//             break ;
+//         c = c->next;
+//     }
+//     tmp = c;
+//     return (tmp);
+// }
 void    sortthree(t_stack **c)
 {
 
     t_stack *highest;
-
+    t_stack *tmp;
+    tmp = *c;
     highest = find_highest(c);
     if ((*c)->data == highest->data)
         ra(c);

@@ -6,7 +6,7 @@
 /*   By: makkach <makkach@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 14:50:35 by makkach           #+#    #+#             */
-/*   Updated: 2025/01/22 12:03:54 by makkach          ###   ########.fr       */
+/*   Updated: 2025/01/22 14:50:11 by makkach          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,11 @@ void        rb(t_stack **c);
 void        rra(t_stack **c);
 void        rrb(t_stack **c);
 t_stack     *init_stack(char **argv, int count);
-
+void    sort_stack(t_stack **a, t_stack **b);
+t_stack *find_min(t_stack *c);
+void current_index(t_stack *c);
+void cost(t_stack *a, t_stack *b);
+void set_cheepest(t_stack *c);
+void cheapest_reset(t_stack *c);
 
 # endif

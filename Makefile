@@ -6,11 +6,11 @@
 #    By: makkach <makkach@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/09 10:43:12 by makkach           #+#    #+#              #
-#    Updated: 2025/01/19 13:36:31 by makkach          ###   ########.fr        #
+#    Updated: 2025/01/22 14:45:04 by makkach          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-source = ft_split.c push_swap_utils.c swap.c push.c rotate.c checks.c ft_lstadd_front_bonus.c ft_lstadd_back_bonus.c push_swap_evenmore.c push_swap_moreutils.c push_swap_probablylastutile.c libft_funcs.c
+source = ft_split.c push_swap_utils.c swap.c sort.c sort2.c push.c rotate.c checks.c ft_lstadd_front_bonus.c ft_lstadd_back_bonus.c push_swap_evenmore.c push_swap_moreutils.c push_swap_probablylastutile.c libft_funcs.c
 objects = $(source:.c=.o)
 
 
