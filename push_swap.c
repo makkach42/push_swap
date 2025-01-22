@@ -6,7 +6,7 @@
 /*   By: makkach <makkach@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 14:50:00 by makkach           #+#    #+#             */
-/*   Updated: 2025/01/22 14:51:22 by makkach          ###   ########.fr       */
+/*   Updated: 2025/01/22 15:00:42 by makkach          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -156,5 +156,3 @@ int main(int argc, char **argv)
         sort_stack(a, b);
     return (0);
 }
-
-    // tmp2 = NULL;
