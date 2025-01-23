@@ -6,7 +6,7 @@
 /*   By: makkach <makkach@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 14:50:00 by makkach           #+#    #+#             */
-/*   Updated: 2025/01/22 16:28:20 by makkach          ###   ########.fr       */
+/*   Updated: 2025/01/23 11:27:04 by makkach          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -134,8 +134,8 @@ int main(int argc, char **argv)
     tmp = NULL;
     if (argc == 1)
         return (0);
-    if (argc == 2 && argv[1][0] == '\0')
-        return (1);
+    if (empty_string_check(argv, argc) == 1)
+        return (write(1, "ERROR\n", 6), 1);
     argv = splitter_joinner(argv, argc);
     argc = count_args(argv);
     if (pars(argv, argc) == 1)

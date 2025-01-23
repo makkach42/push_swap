@@ -6,7 +6,7 @@
 /*   By: makkach <makkach@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 10:24:52 by makkach           #+#    #+#             */
-/*   Updated: 2025/01/22 15:19:52 by makkach          ###   ########.fr       */
+/*   Updated: 2025/01/23 11:27:55 by makkach          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,4 +76,22 @@ int ifsorted(t_stack **a)
         current = current->next;
     }
     return (1);
+}
+int empty_string_check(char **argv, int argc)
+{
+    int i;
+    int j;
+    i = 1;
+    j = 0;
+    while (i < argc)
+    {
+        if (argv[i] == (void *)0)
+            return (1);
+        while (argv[i][j] == 32)
+            j++;
+        if (argv[i][j] == '\0')
+            return (1);
+        i++;
+    }
+    return (0);
 }

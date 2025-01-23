@@ -6,7 +6,7 @@
 /*   By: makkach <makkach@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 14:50:35 by makkach           #+#    #+#             */
-/*   Updated: 2025/01/22 15:49:36 by makkach          ###   ########.fr       */
+/*   Updated: 2025/01/23 11:26:22 by makkach          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,5 +57,6 @@ void	current_index(t_stack *c);
 void	cost(t_stack *a, t_stack *b);
 void	set_cheepest(t_stack *c);
 void	cheapest_reset(t_stack *c);
+int empty_string_check(char **argv, int argc);
 
 # endif
