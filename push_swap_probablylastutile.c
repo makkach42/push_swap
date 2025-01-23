@@ -6,18 +6,12 @@
 /*   By: makkach <makkach@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 18:08:34 by makkach           #+#    #+#             */
-/*   Updated: 2025/01/22 16:02:23 by makkach          ###   ########.fr       */
+/*   Updated: 2025/01/23 15:41:34 by makkach          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-// void    reverse_rotate_rotate(t_stack **a, t_stack **b)
-// {
-//     reverse_rotate_a(a);
-//     reverse_rotate_b(b);
-//     write(1, "rrr\n", 4);
-// }
 t_stack *find_highest(t_stack **c)
 {
     t_stack *current;

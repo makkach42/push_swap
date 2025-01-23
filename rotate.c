@@ -6,7 +6,7 @@
 /*   By: makkach <makkach@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/18 12:50:05 by makkach           #+#    #+#             */
-/*   Updated: 2025/01/18 15:54:45 by makkach          ###   ########.fr       */
+/*   Updated: 2025/01/23 15:43:31 by makkach          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,12 @@ void rb(t_stack **c)
     rotate(c);
     write(1, "rb\n", 3);
 }
+void rr(t_stack **a, t_stack **b)
+{
+    rotate(a);
+    rotate(b);
+    write(1, "rr\n", 3);
+}
 
 void rra(t_stack **c)
 {
@@ -63,4 +69,10 @@ void rrb(t_stack **c)
 {
     reverse(c);
     write(1, "rrb\n", 4);
+}
+void rrr(t_stack **a, t_stack **b)
+{
+    reverse(a);
+    reverse(b);
+    write(1, "rrr\n", 4);
 }

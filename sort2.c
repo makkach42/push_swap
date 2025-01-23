@@ -6,7 +6,7 @@
 /*   By: makkach <makkach@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 14:43:43 by makkach           #+#    #+#             */
-/*   Updated: 2025/01/22 16:31:37 by makkach          ###   ########.fr       */
+/*   Updated: 2025/01/23 16:59:29 by makkach          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,28 +84,32 @@ void b_push(t_stack **b, t_stack **a)
         tmp = tmp->next;
     }
     tmp2 = tmp->target;
-    while (b && (*b) && tmp && (*b)->data != tmp->data)
+
+    while ((*a)->data != tmp2->data && (*b)->data != tmp->data)
     {
-        if (tmp->above_median == 0)
-            rb(b);
-        else if (tmp->above_median == 1)
-            rrb(b);
+        if (tmp->above_median == 0 && tmp2->above_median == 0)
+            rr(a, b);
+        else if (tmp->above_median == 1 && tmp2->above_median == 1)
+            rrr(a, b);
+        else
+        {
+            if (tmp->above_median == 0)
+                rb(b);
+            else if (tmp->above_median == 1)
+                rrb(b);
+            if (tmp2->above_median == 0)
+                ra(a);
+            else if (tmp2->above_median == 1)
+                rra(a);
+        }
     }
-    while (a && (*a) && tmp2 && (*a)->data != tmp2->data)
-    {
-        if (tmp2->above_median == 0)
-            ra(a);
-        else if (tmp2->above_median == 1)
-            rra(a);
-    }
+
     pa(b, a);
 }
 
 void    sort_stack(t_stack **a, t_stack **b)
 {
     t_stack *tmp;
-    // t_stack *tmp2;
-    // t_stack *t;
 
     if (stack_lenth(a) > 3)
         pb(a, b);
