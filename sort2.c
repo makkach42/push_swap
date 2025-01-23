@@ -6,7 +6,7 @@
 /*   By: makkach <makkach@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 14:43:43 by makkach           #+#    #+#             */
-/*   Updated: 2025/01/23 16:59:29 by makkach          ###   ########.fr       */
+/*   Updated: 2025/01/23 18:47:39 by makkach          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,26 +84,88 @@ void b_push(t_stack **b, t_stack **a)
         tmp = tmp->next;
     }
     tmp2 = tmp->target;
+    // printf("a    = %d\ntmp2 = %d\n", (*a)->data, tmp2->data);
+    // printf("b   = %d\ntmp = %d\n", (*b)->data, tmp->data);
+    // while ((*b)->data != tmp->data && (*a)->data != tmp2->data)
+    // {
+    //         // printf("tmp  = %d\n", tmp->above_median);
+    //         // printf("tmp2 = %d\n", tmp2->above_median);
+    //     if ((*b)->data != tmp->data && (*a)->data == tmp2->data)
+    //     {
+    //         while (b && (*b) && tmp && (*b)->data != tmp->data)
+    //         {
+    //             if (tmp->above_median == 0)
+    //                 rb(b);
+    //             if (tmp->above_median == 1)
+    //                 rrb(b);
+    //         }
+    //     }
+    //     if ((*a)->data != tmp2->data && (*b)->data == tmp->data)
+    //     {
+    //         while (a && (*a) && tmp2 && (*a)->data != tmp2->data)
+    //         {
+    //             if (tmp2->above_median == 0)
+    //                 ra(a);
+    //             if (tmp2->above_median == 1)
+    //                 rra(a);
+    //         }
+    //     }
+    //     if ((*b)->data != tmp->data && (*a)->data != tmp2->data)
+    //     {
+    //         if (tmp->above_median == 0 && tmp2->above_median == 0)
+    //             rr(a,b);
+    //         if (tmp->above_median == 1 && tmp2->above_median == 1)
+    //             rrr(a, b);
+    //         else 
+    //             break ;
+    //     }
+    // }
 
-    while ((*a)->data != tmp2->data && (*b)->data != tmp->data)
+    // while ((*a)->data != tmp2->data && (*b)->data != tmp->data)
+    // {
+    //     if ((*b)->data != tmp->data)
+    //     {
+    //         while ((*b)->data != tmp->data)
+    //         {
+    //             if (tmp->above_median == 0)
+    //                 rb(b);
+    //             if (tmp->above_median == 1)
+    //                 rrb(b);
+    //         }
+    //     }
+    //     if ((*a)->data != tmp2->data)
+    //     {
+    //         while ((*a)->data != tmp2->data)
+    //         {
+    //             if (tmp2->above_median == 0)
+    //                 ra(a);
+    //             if (tmp2->above_median == 1)
+    //                 rra(a);
+    //         }
+    //     }
+    //     else 
+    //     {
+    //         if (tmp->above_median == 0 && tmp->above_median == 0)
+    //             rr(a, b);
+    //         if (tmp->above_median == 1 && tmp->above_median == 1)
+    //             rrr(a, b);
+    //     }
+    // }
+
+    while (b && (*b) && tmp && (*b)->data != tmp->data)
     {
-        if (tmp->above_median == 0 && tmp2->above_median == 0)
-            rr(a, b);
-        else if (tmp->above_median == 1 && tmp2->above_median == 1)
-            rrr(a, b);
-        else
-        {
-            if (tmp->above_median == 0)
-                rb(b);
-            else if (tmp->above_median == 1)
-                rrb(b);
-            if (tmp2->above_median == 0)
-                ra(a);
-            else if (tmp2->above_median == 1)
-                rra(a);
-        }
+        if (tmp->above_median == 0)
+            rb(b);
+        else if (tmp->above_median == 1)
+            rrb(b);
     }
-
+    while (a && (*a) && tmp2 && (*a)->data != tmp2->data)
+    {
+        if (tmp2->above_median == 0)
+            ra(a);
+        else if (tmp2->above_median == 1)
+            rra(a);
+    }
     pa(b, a);
 }
 
