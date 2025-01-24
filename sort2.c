@@ -6,7 +6,7 @@
 /*   By: makkach <makkach@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 14:43:43 by makkach           #+#    #+#             */
-/*   Updated: 2025/01/24 10:33:29 by makkach          ###   ########.fr       */
+/*   Updated: 2025/01/24 10:45:12 by makkach          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,6 @@ void node_innit(t_stack *a, t_stack *b, int argc)
     median_status(a);
     median_status(b);
     indexing(a, argc);
-    // printf("AAAA\n");
     indexing(b, argc);
     set_a_target(a, b);
     cost(a, b);

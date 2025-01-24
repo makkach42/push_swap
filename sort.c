@@ -6,7 +6,7 @@
 /*   By: makkach <makkach@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 14:42:42 by makkach           #+#    #+#             */
-/*   Updated: 2025/01/24 10:19:38 by makkach          ###   ########.fr       */
+/*   Updated: 2025/01/24 11:10:26 by makkach          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,11 +48,20 @@ void set_cheepest(t_stack *c)
 }
 void cost(t_stack *a, t_stack *b)
 {
+    t_stack *tmp;
     int c;
     int d;
 
     c = stack_lenth(&a);
     d = stack_lenth(&b);
+    int i = 0;
+    tmp = b;
+    while (tmp)
+    {
+        tmp->index = i;
+        i++;
+        tmp = tmp->next;
+    }
     while (b)
     {
         b->cost = b->index;
