@@ -6,7 +6,7 @@
 /*   By: makkach <makkach@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 14:50:35 by makkach           #+#    #+#             */
-/*   Updated: 2025/01/23 15:43:39 by makkach          ###   ########.fr       */
+/*   Updated: 2025/01/24 10:23:10 by makkach          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,12 +50,14 @@ void	rr(t_stack **a, t_stack **b);
 void	rra(t_stack **c);
 void	rrb(t_stack **c);
 void	rrr(t_stack **a, t_stack **b);
-void	sort_stack(t_stack **a, t_stack **b);
+void	sort_stack(t_stack **a, t_stack **b, int argc);
 t_stack	*find_min(t_stack *c);
-void	current_index(t_stack *c);
+void	median_status(t_stack *c);
 void	cost(t_stack *a, t_stack *b);
 void	set_cheepest(t_stack *c);
 void	cheapest_reset(t_stack *c);
 int		empty_string_check(char **argv, int argc);
+t_stack	*find_min_for_index(t_stack *c);
+void	indexing(t_stack *c, int argc);
 
 # endif

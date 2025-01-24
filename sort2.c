@@ -6,7 +6,7 @@
 /*   By: makkach <makkach@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 14:43:43 by makkach           #+#    #+#             */
-/*   Updated: 2025/01/23 18:47:39 by makkach          ###   ########.fr       */
+/*   Updated: 2025/01/24 10:33:29 by makkach          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,10 +63,13 @@ void    set_a_target(t_stack *a, t_stack *b)
     }
 }
 
-void node_innit(t_stack *a, t_stack *b)
+void node_innit(t_stack *a, t_stack *b, int argc)
 {
-    current_index(a);
-    current_index(b);
+    median_status(a);
+    median_status(b);
+    indexing(a, argc);
+    // printf("AAAA\n");
+    indexing(b, argc);
     set_a_target(a, b);
     cost(a, b);
     cheapest_reset(b);
@@ -169,7 +172,7 @@ void b_push(t_stack **b, t_stack **a)
     pa(b, a);
 }
 
-void    sort_stack(t_stack **a, t_stack **b)
+void    sort_stack(t_stack **a, t_stack **b, int argc)
 {
     t_stack *tmp;
 
@@ -179,16 +182,16 @@ void    sort_stack(t_stack **a, t_stack **b)
         pb(a, b);
     while (stack_lenth(a) > 3)
     {
-        node_innit(*a, *b);
+        node_innit(*a, *b, argc);
         pb(a, b);
-        node_innit(*a, *b);
+        node_innit(*a, *b, argc);
     }
     sortthree(a);
     if (*b)
-        node_innit(*a, *b);
+        node_innit(*a, *b, argc);
     while (*b)
     {
-        node_innit(*a, *b);
+        node_innit(*a, *b, argc);
         b_push(b, a);
     }
     tmp = find_min(*a);

@@ -6,7 +6,7 @@
 /*   By: makkach <makkach@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 14:50:00 by makkach           #+#    #+#             */
-/*   Updated: 2025/01/23 17:17:17 by makkach          ###   ########.fr       */
+/*   Updated: 2025/01/24 10:26:36 by makkach          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -151,6 +151,6 @@ int main(int argc, char **argv)
     else if (stack_lenth(a) == 3)
         return (a = &tmp, sortthree(a), 0);
     else
-        sort_stack(a, &b);
+        sort_stack(a, &b, argc);
     return (0);
 }

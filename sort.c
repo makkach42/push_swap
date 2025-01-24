@@ -6,7 +6,7 @@
 /*   By: makkach <makkach@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 14:42:42 by makkach           #+#    #+#             */
-/*   Updated: 2025/01/22 14:43:34 by makkach          ###   ########.fr       */
+/*   Updated: 2025/01/24 10:19:38 by makkach          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ void cost(t_stack *a, t_stack *b)
         b = b->next;
     }
 }
-void current_index(t_stack *c)
+void median_status(t_stack *c)
 {
     int i;
     int median;
@@ -75,7 +75,6 @@ void current_index(t_stack *c)
     i = 0;
     while (tmp)
     {
-        tmp->index = i;
         if (i + 1 <= median)
             tmp->above_median = 0;
         else
