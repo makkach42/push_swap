@@ -6,7 +6,7 @@
 /*   By: makkach <makkach@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 18:30:30 by makkach           #+#    #+#             */
-/*   Updated: 2025/01/22 10:19:13 by makkach          ###   ########.fr       */
+/*   Updated: 2025/01/24 16:11:29 by makkach          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,4 +35,10 @@ void sb(t_stack *s)
 {
     swap(s);
     write(1, "sb\n", 3);
+}
+void ss(t_stack *a, t_stack *b)
+{
+    swap(a);
+    swap(b);
+    write(1, "ss\n", 3);
 }

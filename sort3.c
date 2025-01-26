@@ -6,7 +6,7 @@
 /*   By: makkach <makkach@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 10:17:29 by makkach           #+#    #+#             */
-/*   Updated: 2025/01/24 11:08:04 by makkach          ###   ########.fr       */
+/*   Updated: 2025/01/26 16:21:20 by makkach          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,29 +41,35 @@ void indexing(t_stack *c, int argc)
     t_stack *min;
     int i;
 
-    i = 0;
     tmp = c;
     while (tmp)
     {
         tmp->index = -1;
         tmp = tmp->next;
     }
-    while (i < argc - 1)
+
+    tmp = c;
+    for (i = 0; i < argc; i++)
     {
-        tmp = c;
         min = find_min_for_index(tmp);
-        while (min && tmp->data != min->data)
-            tmp = tmp->next;
+        if (min)
+            min->index = i;
+        else
+            break;
+    }
+}
+void indexing2(t_stack *c)
+{
+    int i ;
+    t_stack *tmp;
+    
+    i = 0;
+    tmp = c;
+    while (tmp)
+    {
         tmp->index = i;
         i++;
+        tmp = tmp->next;
     }
-    // i = argc;
-    // i = 0;
-    // while (tmp)
-    // {
 
-    //     tmp->index = i;
-    //     i++;
-    //     tmp = tmp->next;
-    // }
-}
+} 

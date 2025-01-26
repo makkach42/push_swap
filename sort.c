@@ -6,7 +6,7 @@
 /*   By: makkach <makkach@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 14:42:42 by makkach           #+#    #+#             */
-/*   Updated: 2025/01/24 11:26:19 by makkach          ###   ########.fr       */
+/*   Updated: 2025/01/26 11:02:57 by makkach          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,13 +55,13 @@ void cost(t_stack *a, t_stack *b)
     c = stack_lenth(&a);
     d = stack_lenth(&b);
     int i = 0;
-    tmp = b;
-    while (tmp)
-    {
-        tmp->index = i;
-        i++;
-        tmp = tmp->next;
-    }
+    // tmp = b;
+    // while (tmp)
+    // {
+    //     tmp->index = i;
+    //     i++;
+    //     tmp = tmp->next;
+    // }
     while (b)
     {
         b->cost = b->index;
@@ -98,17 +98,52 @@ t_stack *find_max(t_stack *c)
     int highest;
     highest = 0;
     tmp = c;
+    while (tmp)
+    {
+        if (tmp->data > highest)
+            highest = tmp->data;
+        tmp = tmp->next;
+    }
+    tmp = c;
+    while (tmp)
+    {
+        if (tmp->data == highest)
+            break ;
+        tmp = tmp->next;
+    }
+    return (tmp);
+}
+int find_max_data(t_stack *c)
+{
+    long highest;
+
+    highest = LONG_MIN;
     while (c)
     {
         if (c->data > highest)
             highest = c->data;
+        c = c->next;
+    }
+    return (highest);
+}
+t_stack *find_max_for_index(t_stack *c)
+{
+    t_stack *tmp;
+    int highest;
+    highest = 0;
+    tmp = c;
+    while (c)
+    {
+        // printf("%d\n", tmp->index);
+        if (c->index > highest)
+            highest = c->index;
         else
             c = c->next;
     }
     c = tmp;
     while (c)
     {
-        if (c->data == highest)
+        if (c->index == highest)
             break ;
         c = c->next;
     }

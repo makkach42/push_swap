@@ -6,7 +6,7 @@
 /*   By: makkach <makkach@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 14:43:43 by makkach           #+#    #+#             */
-/*   Updated: 2025/01/24 11:25:18 by makkach          ###   ########.fr       */
+/*   Updated: 2025/01/26 16:57:41 by makkach          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,10 +69,10 @@ void node_innit(t_stack *a, t_stack *b, int argc)
     median_status(b);
     indexing(a, argc);
     indexing(b, argc);
-    set_a_target(a, b);
-    cost(a, b);
-    cheapest_reset(b);
-    set_cheepest(b);
+    // set_a_target(a, b);
+    // cost(a, b);
+    // cheapest_reset(b);
+    // set_cheepest(b);
 }
 void b_push(t_stack **b, t_stack **a)
 {
@@ -171,37 +171,235 @@ void b_push(t_stack **b, t_stack **a)
     pa(b, a);
 }
 
-void    sort_stack(t_stack **a, t_stack **b, int argc)
+int from_top_to_max(t_stack *b, int max)
 {
+    int i = 0;
     t_stack *tmp;
+    while (tmp->index != max)
+    {
+        tmp = tmp->next;
+        i++;
+    }
 
-    if (stack_lenth(a) > 3)
-        pb(a, b);
-    if (stack_lenth(a) > 3)
-        pb(a, b);
-    while (stack_lenth(a) > 3)
+    return (i);
+}
+void    sort_stack2(t_stack **a, t_stack **b, int argc)
+{
+    int max;
+
+    int lent = stack_lenth(b);
+    indexing(*b, argc);
+    while (lent)
     {
-        node_innit(*a, *b, argc);
-        pb(a, b);
-        node_innit(*a, *b, argc);
-    }
-    sortthree(a);
-    if (*b)
-        node_innit(*a, *b, argc);
-    while (*b)
-    {
-        node_innit(*a, *b, argc);
-        b_push(b, a);
-    }
-    tmp = find_min(*a);
-    if (tmp->above_median == 1)
-    {
-        while (*a != tmp)
-            rra(a);
-    }
-    else if(tmp->above_median == 0)
-    {
-        while (*a != tmp)
-            ra(a);
+        max = lent - 1;
+        int position = from_top_to_max(*b, (lent - 1));
+        int AAAAAAA = lent - position;
+        break ;
+        // pa(b, a);
+        lent--;
     }
 }
+// void    sort_stack(t_stack **a, t_stack **b, int argc)
+// {
+//     int i;
+//     int j;
+//     int halflen;
+//     t_stack *tmp;
+//     t_stack *tmp2;
+
+//     i = 0;
+//     j = 0;
+//     indexing(*a, argc);
+//     while (*a)
+//     {
+//         if ((*a)->index <= i)
+//         {       
+//             pb(a, b);
+//             rb(b);
+//             i++;
+//         }
+//         else if ((*a)->index <= i + 15)
+//         {
+//             pb(a, b);
+//             i++;
+//         }
+//         else
+//             ra(a);  
+//     }
+//     indexing(*b, argc);
+//     int lent = stack_lenth(b);
+//     int len = lent;
+//     int counter;
+//     int rest;
+
+//     rest = 0;
+//     counter = 0;
+//     while (len > 0)
+//     {
+//         int max = len - 1;
+//         tmp = *b;
+//         while (tmp->index != len - 1)
+//         {
+//             tmp = tmp->next;
+//             counter++;
+//         }
+//         while (tmp)
+//         {
+//             tmp = tmp->next;
+//             rest++;
+//         }
+//         if (counter <= rest)
+//         {
+//             while ((*b)->index != len - 1)
+//                 rb(b);
+//         }
+//         else
+//         {
+//             while ((*b)->index != len - 1)
+//                 rrb(b);
+//         }
+//         pa(b, a);
+//         len--;
+//     }
+
+// }
+void sort_stack(t_stack **a, t_stack **b, int argc)
+{
+    int i = 0;
+    
+    indexing(*a, argc);
+    // if ()
+    while (*a)
+    {
+        if ((*a)->index <= i)
+        {       
+            pb(a, b);
+            rb(b);
+            i++;
+        }
+        else if ((*a)->index <= i + 42)
+        {
+            pb(a, b);
+            i++;
+        }
+        else
+            ra(a);  
+    }
+    
+    indexing(*b, argc);
+    int len = stack_lenth(b);
+    
+    while (len > 0)
+    {
+        t_stack *tmp = *b;
+        int counter = 0;
+        int max = len - 1;
+        
+        // Find position of max element
+        while (tmp && tmp->index != max)
+        {
+            counter++;
+            tmp = tmp->next;
+        }
+        
+        // Rotate to top efficiently
+        if (counter <= len / 2)
+        {
+            while ((*b)->index != max)
+                rb(b);
+        }
+        else
+        {
+            while ((*b)->index != max)
+                rrb(b);
+        }
+        
+        pa(b, a);
+        len--;
+    }
+}
+        // median_status(*b);
+
+        // tmp = *b;
+        // while (tmp->data != max)
+        //     tmp = tmp->next;
+        // while ((*b)->data != tmp->data)
+        // {
+        //     if (tmp->above_median == 0)
+        //         rb(b);
+        //     else if (tmp->above_median == 1)
+        //         rrb(b);
+        // }
+
+
+//    t_stack *tmp;
+
+//     indexing((*a), argc);
+//     int len;
+//     len = stack_lenth(a);
+//     int half = len / 2;
+
+//     while (stack_lenth(a) > half)
+//     {
+//         if ((*a)->index < half)
+//             ra(a);
+//         else
+//             pb(a, b);
+//     }
+//     while (stack_lenth(a) > 3)
+//         pb(a, b);
+//     sortthree(a);
+//     while ((*b))
+//     {    
+//         tmp = *b;
+//         node_innit(*a, *b, argc);
+//         while (tmp->cheapest != 1)
+//             tmp = tmp->next;
+//         while ((*b)->cheapest != 1)
+//         {
+//             if (tmp->above_median == 0)
+//                 rb(b);
+//             else if (tmp->above_median == 1)
+//                 rrb(b);
+//         }
+//         while ((*a) != (*b)->target)
+//         {
+
+//             if (tmp->above_median == 0)
+//                 ra(a);
+//             else if (tmp->above_median == 1)
+//                 rra(a);
+//         }
+//         pa(b, a);
+//     }
+//     if (tmp->above_median == 0)
+//     {
+//         while ((*a)->index != 0)
+//             ra(a);
+//     }
+//     if (tmp->above_median == 1)
+//     {
+//         while ((*a)->index != 0)
+//             rra(a);
+//     }
+//     // if (*b)
+//     //     node_innit(*a, *b, argc);
+//     // while (*b)
+//     // {
+//     //     node_innit(*a, *b, argc);
+//     //     b_push(b, a);
+//     // }
+//     // tmp = find_min(*a);
+//     // if (tmp->above_median == 1)
+//     // {
+//     //     while (*a != tmp)
+//     //         rra(a);
+//     // }
+//     // else if(tmp->above_median == 0)
+//     // {
+//     //     while (*a != tmp)
+//     //         ra(a);
+//     // }
+
+
+
