@@ -6,115 +6,114 @@
 /*   By: makkach <makkach@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 14:50:00 by makkach           #+#    #+#             */
-/*   Updated: 2025/01/30 16:29:34 by makkach          ###   ########.fr       */
+/*   Updated: 2025/01/30 18:10:42 by makkach          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include <stdio.h>
 
-static int count_args(char **nums)
+static int	count_args(char **nums)
 {
-    int count;
+	int	count;
 
-    count = 0;
-    while(nums[count])
-        count++;
-    return (count);
+	count = 0;
+	while (nums[count])
+		count++;
+	return (count);
 }
 
-static t_stack *set_next(t_stack **tmp, int counter)
+static t_stack	*set_next(t_stack **tmp, int counter)
 {
-    t_stack *tmp3;
-    int counter2;
-    counter2 = 0;
-    counter--;
-    tmp3 = tmp[counter2];
-    while (counter)
-    {
-        tmp[counter2]->next = tmp[counter2 + 1];
-        counter2++;
-        counter--;
-    }
-    free(tmp);
-    return (tmp3);
-}
-static t_stack *init_stack(char **argv, int count)
-{
-    t_stack **tmp;
-    t_stack *tmp3;
-    int counter;
+	t_stack	*tmp3;
+	int		counter2;
 
-    counter = 0;
-    tmp = (t_stack **)malloc(sizeof(t_stack *) * count);
-    if (!tmp)
-        return (free(tmp), NULL);
-    while (counter < count)
-    {
-        tmp[counter] = malloc(sizeof(t_stack));
-        if (!tmp[counter])
-            return (NULL);
-        if (counter == 0)
-            tmp3 = tmp[counter];
-        tmp[counter]->data = ft_atoi(argv[counter]);
-        if (counter + 1 == count)
-            tmp[counter]->next = NULL;
-        counter++;
-    }
-    return (set_next(tmp, counter));
+	counter2 = 0;
+	counter--;
+	tmp3 = tmp[counter2];
+	while (counter)
+	{
+		tmp[counter2]->next = tmp[counter2 + 1];
+		counter2++;
+		counter--;
+	}
+	free(tmp);
+	return (tmp3);
 }
 
-static int    dup_checker(t_stack **c)
+static t_stack	*init_stack(char **argv, int count)
 {
-    t_stack *current;
-    t_stack *next;
-    t_stack **tmp;
+	t_stack	**tmp;
+	t_stack	*tmp3;
+	int		counter;
 
-    current = *c;
-    tmp = c;
-    next = (*tmp)->next;
-    while (current->next)
-    {
-        while (next)
-        {
-            if (current->data == next->data)
-                return (1);
-            next = next->next;
-        }
-        current = current->next;
-        next = current->next;
-    }
-    return (0);
+	counter = 0;
+	tmp = (t_stack **)malloc(sizeof(t_stack *) * count);
+	if (!tmp)
+		return (free(tmp), NULL);
+	while (counter < count)
+	{
+		tmp[counter] = malloc(sizeof(t_stack));
+		if (!tmp[counter])
+			return (NULL);
+		if (counter == 0)
+			tmp3 = tmp[counter];
+		tmp[counter]->data = ft_atoi(argv[counter]);
+		if (counter + 1 == count)
+			tmp[counter]->next = NULL;
+		counter++;
+	}
+	return (set_next(tmp, counter));
 }
-void    f(void)
+
+static int	dup_checker(t_stack **c)
 {
-    system("leaks push_swap");
+	t_stack	*current;
+	t_stack	*next;
+	t_stack	**tmp;
+
+	current = *c;
+	tmp = c;
+	next = (*tmp)->next;
+	while (current->next)
+	{
+		while (next)
+		{
+			if (current->data == next->data)
+				return (1);
+			next = next->next;
+		}
+		current = current->next;
+		next = current->next;
+	}
+	return (0);
 }
-int main(int argc, char **argv)
+
+int	main(int argc, char **argv)
 {
-    atexit(f);
-    t_stack *a;
-    t_stack *b;
-    a = NULL;
-    b = NULL;
-    if (argc == 1)
-        return (0);
-    if (empty_string_check(argv, argc) == 1)
-        return (write(1, "ERROR\n", 6), 1);
-    argv = splitter_joinner(argv, argc);
-    argc = count_args(argv);
-    if (pars(argv, argc) == 1)
-        return (write(1, "ERROR\n", 6), 0);
-    a = init_stack(argv, argc);
-    if (dup_checker(&a) == 1)
-        return (write(1, "ERROR\n", 6), 0);
-    if (ifsorted(&a) == 1)
-        return (0);
-    if (stack_lenth(&a) == 2)
-        return (sa(a), free_list(&a), 0);
-    else if (stack_lenth(&a) == 3)
-        return (sortthree(&a), free_list(&a), 0);
-    else
-        return (sort_stack(&a, &b, argc), free_list(&a), 0);
-    return (0);
+	t_stack	*a;
+	t_stack	*b;
+
+	a = NULL;
+	b = NULL;
+	if (argc == 1)
+		return (0);
+	if (empty_string_check(argv, argc) == 1)
+		return (write(1, "ERROR\n", 6), 1);
+	argv = splitter_joinner(argv, argc);
+	argc = count_args(argv);
+	if (pars(argv, argc) == 1)
+		return (write(1, "ERROR\n", 6), 0);
+	a = init_stack(argv, argc);
+	argv_free(argv);
+	if (dup_checker(&a) == 1)
+		return (write(1, "ERROR\n", 6), 0);
+	if (ifsorted(&a) == 1)
+		return (0);
+	if (stack_lenth(&a) == 2)
+		return (sa(a), free_list(&a), 0);
+	else if (stack_lenth(&a) == 3)
+		return (sortthree(&a), free_list(&a), 0);
+	else
+		return (sort_stack(&a, &b, argc), free_list(&a), 0);
 }

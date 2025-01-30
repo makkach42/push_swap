@@ -10,33 +10,28 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.c"
+#include "push_swap.h"
 
-static void push(t_stack **src, t_stack **dest)
+static void	push(t_stack **src, t_stack **dest)
 {
-    t_stack *tmp;
+	t_stack	*tmp;
 
-    if (!src || !*src)
-        return;
-
-    tmp = *src;
-    *src = (*src)->next;
-    tmp->next = *dest;
-    *dest = tmp;
+	if (!src || !*src)
+		return ;
+	tmp = *src;
+	*src = (*src)->next;
+	tmp->next = *dest;
+	*dest = tmp;
 }
 
-void pa(t_stack **src, t_stack **dest)
+void	pa(t_stack **src, t_stack **dest)
 {
-    push(src, dest);
-    write(1, "pa\n", 3);
-}
-void pb(t_stack **src, t_stack **dest)
-{
-    push(src, dest);
-    write(1, "pb\n", 3);
+	push(src, dest);
+	write(1, "pa\n", 3);
 }
 
-    // tmp = *src;
-    // *src = (*src)->next;
-    // tmp->next = *dest;
-    // *dest = tmp;
+void	pb(t_stack **src, t_stack **dest)
+{
+	push(src, dest);
+	write(1, "pb\n", 3);
+}

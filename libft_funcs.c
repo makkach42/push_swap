@@ -39,6 +39,7 @@ long	ft_atoi(char *str)
 	}
 	return (number * sign);
 }
+
 char	*ft_strdup(char *s1)
 {
 	int		i;
@@ -60,6 +61,7 @@ char	*ft_strdup(char *s1)
 	j[i] = '\0';
 	return (j);
 }
+
 size_t	ft_strlen(char *str)
 {
 	size_t	i;
@@ -69,6 +71,7 @@ size_t	ft_strlen(char *str)
 		i++;
 	return (i);
 }
+
 static char	*cases(char *s1, char *s2)
 {
 	int	len3;
