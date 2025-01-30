@@ -6,7 +6,7 @@
 #    By: makkach <makkach@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/09 10:43:12 by makkach           #+#    #+#              #
-#    Updated: 2025/01/26 16:27:30 by makkach          ###   ########.fr        #
+#    Updated: 2025/01/30 16:28:18 by makkach          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ NAME = push_swap
 
 CC = cc
 
-CFLAGS = #-Wall -Werror -Wextra #-g -fsanitize=address
+ CFLAGS = #-Wall -Werror -Wextra 
 
 RM = rm -rf
 

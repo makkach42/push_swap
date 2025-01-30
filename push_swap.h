@@ -6,7 +6,7 @@
 /*   By: makkach <makkach@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 14:50:35 by makkach           #+#    #+#             */
-/*   Updated: 2025/01/26 15:33:15 by makkach          ###   ########.fr       */
+/*   Updated: 2025/01/30 16:11:27 by makkach          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,7 @@ t_stack	*find_max(t_stack *c);
 t_stack	*find_max_for_index(t_stack *c);
 void    indexing2(t_stack *c);
 int find_max_data(t_stack *c);
+void    free_list(t_stack **a);
 
 # endif
 

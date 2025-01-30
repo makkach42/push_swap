@@ -6,7 +6,7 @@
 /*   By: makkach <makkach@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 10:17:29 by makkach           #+#    #+#             */
-/*   Updated: 2025/01/26 16:21:20 by makkach          ###   ########.fr       */
+/*   Updated: 2025/01/30 16:00:39 by makkach          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,18 +58,3 @@ void indexing(t_stack *c, int argc)
             break;
     }
 }
-void indexing2(t_stack *c)
-{
-    int i ;
-    t_stack *tmp;
-    
-    i = 0;
-    tmp = c;
-    while (tmp)
-    {
-        tmp->index = i;
-        i++;
-        tmp = tmp->next;
-    }
-
-} 

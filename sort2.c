@@ -6,24 +6,12 @@
 /*   By: makkach <makkach@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 14:43:43 by makkach           #+#    #+#             */
-/*   Updated: 2025/01/26 18:25:33 by makkach          ###   ########.fr       */
+/*   Updated: 2025/01/30 16:27:47 by makkach          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int from_top_to_max(t_stack *b, int max)
-{
-    int i = 0;
-    t_stack *tmp;
-    while (tmp->index != max)
-    {
-        tmp = tmp->next;
-        i++;
-    }
-
-    return (i);
-}
 void sort_algo(t_stack **a, t_stack **b, int argc)
 {
     int len = stack_lenth(b);
