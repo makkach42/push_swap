@@ -6,46 +6,56 @@
 /*   By: makkach <makkach@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 14:43:43 by makkach           #+#    #+#             */
-/*   Updated: 2025/01/30 19:19:55 by makkach          ###   ########.fr       */
+/*   Updated: 2025/01/31 11:58:48 by makkach          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	sort_algo(t_stack **a, t_stack **b, int argc)
+void sort_algo(t_stack **a, t_stack **b)
 {
-	t_stack	*tmp;
-	int		len;
-	int		counter;
-	int		max;
+    t_stack *tmp;
+    int len;
+    int counter;
+    int max;
 
-	indexing(*b, argc);
-	len = stack_lenth(b);
-	while (len > 0)
-	{
-		tmp = *b;
-		counter = 0;
-		max = len - 1;
-		while (tmp && tmp->index != max)
-		{
-			counter++;
-			tmp = tmp->next;
-		}
-		if (counter <= len / 2)
-			algo_helper(b, max);
-		else
-			algo_helper2(b, max);
-		pa(b, a);
-		len--;
-	}
+    while (*b)
+    {
+        tmp = *b;
+        counter = 0;
+        max = -1;
+        
+        tmp = *b;
+        while (tmp)
+        {
+            if (tmp->index > max)
+                max = tmp->index;
+            tmp = tmp->next;
+        }
+
+        tmp = *b;
+        counter = 0;
+        while (tmp && tmp->index != max)
+        {
+            counter++;
+            tmp = tmp->next;
+        }
+        
+        len = stack_lenth(b);
+        if (counter <= len / 2)
+            algo_helper(b, max);
+        else
+            algo_helper2(b, max);
+        pa(b, a);
+    }
 }
 
-void	less_than_100(t_stack **a, t_stack **b, int argc)
+void	less_than_100(t_stack **a, t_stack **b)
 {
 	int	i;
 
 	i = 0;
-	indexing(*a, argc);
+	indexing(*a);
 	while (*a)
 	{
 		if ((*a)->index <= i)
@@ -62,15 +72,15 @@ void	less_than_100(t_stack **a, t_stack **b, int argc)
 		else
 			ra(a);
 	}
-	sort_algo(a, b, argc);
+	sort_algo(a, b);
 }
 
-void	more_than_100(t_stack **a, t_stack **b, int argc)
+void	more_than_100(t_stack **a, t_stack **b)
 {
 	int	i;
 
 	i = 0;
-	indexing(*a, argc);
+	indexing(*a);
 	while (*a)
 	{
 		if ((*a)->index <= i)
@@ -87,13 +97,13 @@ void	more_than_100(t_stack **a, t_stack **b, int argc)
 		else
 			ra(a);
 	}
-	sort_algo(a, b, argc);
+	sort_algo(a, b);
 }
 
 void	sort_stack(t_stack **a, t_stack **b, int argc)
 {
 	if (argc > 100)
-		more_than_100(a, b, argc);
+		more_than_100(a, b);
 	else if (argc <= 100)
-		less_than_100(a, b, argc);
+		less_than_100(a, b);
 }

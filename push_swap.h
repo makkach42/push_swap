@@ -6,7 +6,7 @@
 /*   By: makkach <makkach@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 14:50:35 by makkach           #+#    #+#             */
-/*   Updated: 2025/01/30 19:19:46 by makkach          ###   ########.fr       */
+/*   Updated: 2025/01/31 11:30:18 by makkach          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,10 +47,129 @@ void	rrb(t_stack **c);
 void	rrr(t_stack **a, t_stack **b);
 void	sort_stack(t_stack **a, t_stack **b, int argc);
 int		empty_string_check(char **argv, int argc);
-void	indexing(t_stack *c, int argc);
+void	indexing(t_stack *c);
 void	free_list(t_stack **a);
 void	argv_free(char **argv);
 void	algo_helper(t_stack **b, int max);
 void	algo_helper2(t_stack **b, int max);
 
 #endif
+
+/*
+static int find_max_index(t_stack *stack)
+{
+    int max;
+    t_stack *current;
+
+    if (!stack)
+        return (-1);
+    max = stack->index;
+    current = stack;
+    while (current)
+    {
+        if (current->index > max)
+            max = current->index;
+        current = current->next;
+    }
+    return (max);
+}
+
+static void push_to_b(t_stack **a, t_stack **b, int start, int end)
+{
+    t_stack *tmp;
+    int found;
+
+    while (1)
+    {
+        tmp = *a;
+        found = 0;
+        while (tmp && !found)
+        {
+            if (tmp->index >= start && tmp->index <= end)
+                found = 1;
+            tmp = tmp->next;
+        }
+        if (!found)
+            break;
+        if ((*a)->index >= start && (*a)->index <= end)
+        {
+            pb(a, b);
+        }
+        else
+            ra(a);
+    }
+}
+
+static void sort_b_to_a(t_stack **a, t_stack **b)
+{
+    while (*b)
+    {
+        t_stack *tmp = *b;
+        int max_index = find_max_index(*b);
+        int pos = 0;
+        int size = stack_lenth(b);
+        
+        while (tmp && tmp->index != max_index)
+        {
+            pos++;
+            tmp = tmp->next;
+        }
+        
+        while ((*b)->index != max_index)
+        {
+            if (pos <= size / 2)
+                rb(b);
+            else
+                rrb(b);
+        }
+        pa(b, a);
+    }
+}
+
+void less_than_100(t_stack **a, t_stack **b)
+{
+    int size;
+    int chunk_size;
+    int i;
+    
+    size = stack_lenth(a);
+    indexing(*a);
+    chunk_size = 15;
+    
+    i = 0;
+    while (i < size)
+    {
+        push_to_b(a, b, i, i + chunk_size - 1);
+        i += chunk_size;
+    }
+    
+    sort_b_to_a(a, b);
+}
+
+void more_than_100(t_stack **a, t_stack **b)
+{
+    int size;
+    int chunk_size;
+    int i;
+    
+    size = stack_lenth(a);
+    indexing(*a);
+    chunk_size = 25;
+    
+    i = 0;
+    while (i < size)
+    {
+        push_to_b(a, b, i, i + chunk_size - 1);
+        i += chunk_size;
+    }
+    
+    sort_b_to_a(a, b);
+}
+
+void sort_stack(t_stack **a, t_stack **b, int argc)
+{
+    if (argc > 100)
+        more_than_100(a, b);
+    else if (argc <= 100)
+        less_than_100(a, b);
+}*/

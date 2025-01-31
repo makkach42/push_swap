@@ -6,7 +6,7 @@
 /*   By: makkach <makkach@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 10:17:29 by makkach           #+#    #+#             */
-/*   Updated: 2025/01/30 19:19:28 by makkach          ###   ########.fr       */
+/*   Updated: 2025/01/31 10:55:35 by makkach          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,50 +14,48 @@
 
 t_stack	*find_min_for_index(t_stack *c)
 {
-	t_stack	*tmp;
-	int		lowest;
+    t_stack	*current;
+    t_stack *min_node;
+    int		min_val;
 
-	lowest = INT_MAX;
-	tmp = c;
-	while (c)
-	{
-		if (c->data < lowest && c->index == -1)
-			lowest = c->data;
-		else
-			c = c->next;
-	}
-	c = tmp;
-	while (c)
-	{
-		if (c->data == lowest)
-			break ;
-		c = c->next;
-	}
-	tmp = c;
-	return (tmp);
+    min_val = INT_MAX;
+    current = c;
+    min_node = NULL;
+    
+    while (current)
+    {
+        if (current->data < min_val && current->index == -1)
+        {
+            min_val = current->data;
+            min_node = current;
+        }
+        current = current->next;
+    }
+    return (min_node);
 }
 
-void	indexing(t_stack *c, int argc)
+void	indexing(t_stack *c)
 {
 	t_stack	*tmp;
 	t_stack	*min;
 	int		i;
+	int		count;
 
 	tmp = c;
+	count = 0;
 	while (tmp)
 	{
 		tmp->index = -1;
+		count++;
 		tmp = tmp->next;
 	}
-	tmp = c;
+
 	i = 0;
-	while (i < argc)
+	while (i < count)  // Use actual count instead of argc
 	{
-		min = find_min_for_index(tmp);
+		min = find_min_for_index(c);
 		if (min)
 			min->index = i;
-		else
-			break ;
 		i++;
 	}
 }
