@@ -6,7 +6,7 @@
 /*   By: makkach <makkach@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 14:43:43 by makkach           #+#    #+#             */
-/*   Updated: 2025/01/31 11:58:48 by makkach          ###   ########.fr       */
+/*   Updated: 2025/02/01 10:59:02 by makkach          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,16 @@ void sort_algo(t_stack **a, t_stack **b)
     int len;
     int counter;
     int max;
+    int size;
 
-    while (*b)
+    size = stack_lenth(b);
+    while (size > 0)
     {
         tmp = *b;
-        counter = 0;
         max = -1;
+        counter = 0;
         
-        tmp = *b;
+        // Find max and its position
         while (tmp)
         {
             if (tmp->index > max)
@@ -34,70 +36,83 @@ void sort_algo(t_stack **a, t_stack **b)
         }
 
         tmp = *b;
-        counter = 0;
         while (tmp && tmp->index != max)
         {
             counter++;
             tmp = tmp->next;
         }
-        
+
+        // Optimize rotation direction
         len = stack_lenth(b);
         if (counter <= len / 2)
             algo_helper(b, max);
         else
             algo_helper2(b, max);
+
         pa(b, a);
+        size--;
     }
 }
 
-void	less_than_100(t_stack **a, t_stack **b)
+void less_than_100(t_stack **a, t_stack **b)
 {
-	int	i;
+    int i;
+    int size;
+    int chunk_size;
 
-	i = 0;
-	indexing(*a);
-	while (*a)
-	{
-		if ((*a)->index <= i)
-		{
-			pb(a, b);
-			rb(b);
-			i++;
-		}
-		else if ((*a)->index <= i + 15)
-		{
-			pb(a, b);
-			i++;
-		}
-		else
-			ra(a);
-	}
+    size = stack_lenth(a);
+    chunk_size = 15;
+    i = 0;
+    indexing(*a);
+    
+    while (*a)
+    {
+        if ((*a)->index <= i)
+        {
+            pb(a, b);
+            if (*b && (*b)->index != i)
+                rb(b);
+            i++;
+        }
+        else if ((*a)->index <= (i + chunk_size))
+        {
+            pb(a, b);
+            i++;
+        }
+        else if (*a)
+            ra(a);
+    }
 	sort_algo(a, b);
 }
 
-void	more_than_100(t_stack **a, t_stack **b)
+void more_than_100(t_stack **a, t_stack **b)
 {
-	int	i;
+    int i;
+    int size;
+    int chunk_size;
 
-	i = 0;
-	indexing(*a);
-	while (*a)
-	{
-		if ((*a)->index <= i)
-		{
-			pb(a, b);
-			rb(b);
-			i++;
-		}
-		else if ((*a)->index <= i + 42)
-		{
-			pb(a, b);
-			i++;
-		}
-		else
-			ra(a);
-	}
-	sort_algo(a, b);
+    size = stack_lenth(a);
+    chunk_size = 42;
+    i = 0;
+    indexing(*a);
+    
+    while (*a)
+    {
+        if ((*a)->index <= i)
+        {
+            pb(a, b);
+            if (*b && (*b)->index != i)
+                rb(b);
+            i++;
+        }
+        else if ((*a)->index <= (i + chunk_size))
+        {
+            pb(a, b);
+            i++;
+        }
+        else if (*a)
+            ra(a);
+    }
 }
 
 void	sort_stack(t_stack **a, t_stack **b, int argc)
