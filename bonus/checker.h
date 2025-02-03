@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   checker.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: makkach <makkach@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 14:50:35 by makkach           #+#    #+#             */
-/*   Updated: 2025/02/03 11:16:44 by makkach          ###   ########.fr       */
+/*   Updated: 2025/02/03 16:00:09 by makkach          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,9 @@
 # include <limits.h>
 # include <unistd.h>
 # include <stdlib.h>
+# include <stdio.h>
 
+#  define BUFFER_SIZE 42
 typedef struct s_stack
 {
 	int				data;
@@ -55,6 +57,9 @@ void	algo_helper(t_stack **b, int max);
 void	algo_helper2(t_stack **b, int max);
 char	*get_next_line(int fd);
 char	*ft_strchr(const char *s, int c);
+t_stack	*init_stack(char **argv, int count);
+int		ft_strncmp(char *str1, char *str2, size_t n);
+void	free_operations(char **operations);
 
 #endif
 

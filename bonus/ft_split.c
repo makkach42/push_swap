@@ -6,11 +6,11 @@
 /*   By: makkach <makkach@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/28 16:07:49 by makkach           #+#    #+#             */
-/*   Updated: 2025/01/12 15:14:39 by makkach          ###   ########.fr       */
+/*   Updated: 2025/02/03 11:18:40 by makkach          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "checker.h"
 
 static int	countwords(char *s, char c)
 {

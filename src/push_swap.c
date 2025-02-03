@@ -6,12 +6,11 @@
 /*   By: makkach <makkach@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 14:50:00 by makkach           #+#    #+#             */
-/*   Updated: 2025/01/30 18:10:42 by makkach          ###   ########.fr       */
+/*   Updated: 2025/02/01 16:58:42 by makkach          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <stdio.h>
 
 static int	count_args(char **nums)
 {

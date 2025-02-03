@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort.c                                             :+:      :+:    :+:   */
+/*   more_helper.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: makkach <makkach@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/22 14:42:42 by makkach           #+#    #+#             */
-/*   Updated: 2025/01/30 16:51:55 by makkach          ###   ########.fr       */
+/*   Created: 2025/02/03 15:51:23 by makkach           #+#    #+#             */
+/*   Updated: 2025/02/03 16:16:16 by makkach          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "checker.h"
 
 void	free_list(t_stack **a)
 {
@@ -38,4 +38,17 @@ void	argv_free(char **argv)
 		i++;
 	}
 	free(argv);
+}
+
+void    free_operations(char **operations)
+{
+    int i;
+
+    i = 0;
+    while (operations[i])
+    {
+        free(operations[i]);
+        i++;
+    }
+    free(operations);
 }

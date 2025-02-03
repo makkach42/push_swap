@@ -1,46 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap_utils.c                                  :+:      :+:    :+:   */
+/*   swap.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: makkach <makkach@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/07 14:52:42 by makkach           #+#    #+#             */
-/*   Updated: 2025/01/19 10:17:02 by makkach          ###   ########.fr       */
+/*   Created: 2025/01/17 18:30:30 by makkach           #+#    #+#             */
+/*   Updated: 2025/02/03 15:48:33 by makkach          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static char	**helper(char **argv)
+static void	swap(t_stack *c)
 {
-	int		i;
-	char	**d;
-	char	*tmp;
-	char	*str;
+	int	tmp;
 
-	i = 2;
-	str = ft_strdup(argv[1]);
-	while (argv[i] != NULL)
-	{
-		tmp = str;
-		str = ft_strjoin(str, " ");
-		free(tmp);
-		tmp = str;
-		str = ft_strjoin(str, argv[i]);
-		free(tmp);
-		i++;
-	}
-	d = ft_split(str, 32);
-	free(str);
-	return (d);
+	if (!c || !c->next)
+		return ;
+	tmp = c->data;
+	c->data = c->next->data;
+	c->next->data = tmp;
 }
 
-char	**splitter_joinner(char **argv, int argc)
+void	sa(t_stack *s)
 {
-	char	**d;
+	swap(s);
+}
 
-	argc = 0;
-	d = helper(argv);
-	return (d);
+void	sb(t_stack *s)
+{
+	swap(s);
+}
+
+void	ss(t_stack *a, t_stack *b)
+{
+	swap(a);
+	swap(b);
 }

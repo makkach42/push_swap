@@ -6,31 +6,40 @@
 #    By: makkach <makkach@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/09 10:43:12 by makkach           #+#    #+#              #
-#    Updated: 2025/01/30 18:20:28 by makkach          ###   ########.fr        #
+#    Updated: 2025/02/03 19:02:08 by makkach          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-source = ft_split.c push_swap_utils.c reverse_rotate.c swap.c sort.c sort2.c sort3.c push.c rotate.c checks.c push_swap_probablylastutile.c libft_funcs.c push_swap.c
+SRC_DIR = src
+BONUS_DIR = bonus
+
+source = $(wildcard $(SRC_DIR)/*.c)
+source_bonus = $(wildcard $(BONUS_DIR)/*.c)
 
 objects = $(source:.c=.o)
+objects_bonus = $(source_bonus:.c=.o)
 
 NAME = push_swap
+NAME2 = checker
 
 CC = cc
-
-CFLAGS = -Wall -Werror -Wextra 
+CFLAGS = -Wall -Werror -Wextra -I. 
 
 RM = rm -rf
 
-all : $(NAME)
+all: $(NAME)
 
-$(NAME):  $(objects) push_swap.h
-		$(CC) $(CFLAGS) $(objects) -o $(NAME)
+$(NAME): $(objects) push_swap.h
+	$(CC) $(CFLAGS) $(objects) -o $(NAME)
+bonus: $(NAME2)
+
+$(NAME2): $(objects_bonus) push_swap.h
+	$(CC) $(CFLAGS) $(objects_bonus) -o $(NAME2)
 
 clean:
-		$(RM) $(objects)
+	$(RM) $(objects) $(objects_bonus)
 
-fclean:	clean
-	$(RM) push_swap
+fclean: clean
+	$(RM) push_swap checker
 
-re : fclean all
+re: fclean all

@@ -1,38 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push.c                                             :+:      :+:    :+:   */
+/*   sort.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: makkach <makkach@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/17 18:19:26 by makkach           #+#    #+#             */
-/*   Updated: 2025/02/01 10:56:22 by makkach          ###   ########.fr       */
+/*   Created: 2025/01/22 14:42:42 by makkach           #+#    #+#             */
+/*   Updated: 2025/02/03 16:41:37 by makkach          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void push(t_stack **src, t_stack **dest)
+void	free_list(t_stack **a)
 {
-    t_stack *tmp;
+	t_stack	*tmp;
+	t_stack	*tmp2;
 
-    if (!src || !*src)
-        return;
-        
-    tmp = *src;
-    *src = (*src)->next;
-    tmp->next = *dest;
-    *dest = tmp;
+	tmp = *a;
+	while (tmp)
+	{
+		tmp2 = tmp;
+		tmp = tmp->next;
+		free(tmp2);
+		tmp2 = NULL;
+	}
 }
 
-void	pa(t_stack **src, t_stack **dest)
+void	argv_free(char **argv)
 {
-	push(src, dest);
-	write(1, "pa\n", 3);
-}
+	int	i;
 
-void	pb(t_stack **src, t_stack **dest)
-{
-	push(src, dest);
-	write(1, "pb\n", 3);
+	i = 0;
+	while (argv[i])
+	{
+		free(argv[i]);
+		i++;
+	}
+	free(argv);
 }
