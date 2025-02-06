@@ -1,40 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   swap.c                                             :+:      :+:    :+:   */
+/*   push_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: makkach <makkach@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/17 18:30:30 by makkach           #+#    #+#             */
-/*   Updated: 2025/02/03 15:48:33 by makkach          ###   ########.fr       */
+/*   Created: 2025/01/17 18:19:26 by makkach           #+#    #+#             */
+/*   Updated: 2025/02/06 15:55:53 by makkach          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "checker_bonus.h"
 
-static void	swap(t_stack *c)
+static void	push(t_stack **src, t_stack **dest)
 {
-	int	tmp;
+	t_stack	*tmp;
 
-	if (!c || !c->next)
+	if (!src || !*src)
 		return ;
-	tmp = c->data;
-	c->data = c->next->data;
-	c->next->data = tmp;
+	tmp = *src;
+	*src = (*src)->next;
+	tmp->next = *dest;
+	*dest = tmp;
 }
 
-void	sa(t_stack *s)
+void	pa_bonus(t_stack **src, t_stack **dest)
 {
-	swap(s);
+	push(src, dest);
 }
 
-void	sb(t_stack *s)
+void	pb_bonus(t_stack **src, t_stack **dest)
 {
-	swap(s);
-}
-
-void	ss(t_stack *a, t_stack *b)
-{
-	swap(a);
-	swap(b);
+	push(src, dest);
 }

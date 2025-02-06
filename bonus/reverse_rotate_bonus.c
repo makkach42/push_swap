@@ -1,43 +1,47 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rotate.c                                           :+:      :+:    :+:   */
+/*   reverse_rotate_bonus.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: makkach <makkach@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/18 12:50:05 by makkach           #+#    #+#             */
-/*   Updated: 2025/02/03 15:48:45 by makkach          ###   ########.fr       */
+/*   Created: 2025/01/30 18:07:53 by makkach           #+#    #+#             */
+/*   Updated: 2025/02/06 15:55:40 by makkach          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "checker_bonus.h"
 
-static void	rotate(t_stack **c)
+static void	reverse(t_stack **c)
 {
 	t_stack	*head;
 	t_stack	*tail;
+	t_stack	*beforetail;
 
 	head = *c;
 	tail = head;
+	beforetail = head;
 	while (tail->next)
 		tail = tail->next;
-	*c = (*c)->next;
+	while (beforetail->next != tail)
+		beforetail = beforetail->next;
 	tail->next = head;
-	head->next = NULL;
+	beforetail->next = NULL;
+	*c = tail;
 }
 
-void	ra(t_stack **c)
+void	rra_bonus(t_stack **c)
 {
-	rotate(c);
+	reverse(c);
 }
 
-void	rb(t_stack **c)
+void	rrb_bonus(t_stack **c)
 {
-	rotate(c);
+	reverse(c);
 }
 
-void	rr(t_stack **a, t_stack **b)
+void	rrr_bonus(t_stack **a, t_stack **b)
 {
-	rotate(a);
-	rotate(b);
+	reverse(a);
+	reverse(b);
 }

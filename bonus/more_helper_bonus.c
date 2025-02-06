@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   more_helper.c                                      :+:      :+:    :+:   */
+/*   more_helper_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: makkach <makkach@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 15:51:23 by makkach           #+#    #+#             */
-/*   Updated: 2025/02/03 16:16:16 by makkach          ###   ########.fr       */
+/*   Updated: 2025/02/06 15:20:16 by makkach          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "checker.h"
+#include "checker_bonus.h"
 
 void	free_list(t_stack **a)
 {
@@ -40,15 +40,44 @@ void	argv_free(char **argv)
 	free(argv);
 }
 
-void    free_operations(char **operations)
+void	free_operations(char **operations)
 {
-    int i;
+	int	i;
 
-    i = 0;
-    while (operations[i])
-    {
-        free(operations[i]);
-        i++;
-    }
-    free(operations);
+	i = 0;
+	while (operations[i])
+	{
+		free(operations[i]);
+		i++;
+	}
+	free(operations);
+}
+
+void	checker_helper(char **tmp, int i, char **line)
+{
+	int	j;
+
+	j = 0;
+	if (!tmp)
+	{
+		j = i;
+		while (j > 0)
+		{
+			free(line[--j]);
+		}
+		free(line);
+		return ;
+	}
+	j = 0;
+	while (j < i)
+	{
+		tmp[j] = line[j];
+		j++;
+	}
+}
+
+void	last_free(t_stack **a, char **operations)
+{
+	free_list(a);
+	free_operations(operations);
 }

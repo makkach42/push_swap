@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   checker_helper.c                                   :+:      :+:    :+:   */
+/*   checker_helper_bonus.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: makkach <makkach@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/02 09:53:18 by makkach           #+#    #+#             */
-/*   Updated: 2025/02/03 11:18:26 by makkach          ###   ########.fr       */
+/*   Updated: 2025/02/06 15:21:01 by makkach          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "checker.h"
+#include "checker_bonus.h"
 
 static char	**helper(char **argv)
 {
@@ -44,6 +44,7 @@ char	**splitter_joinner(char **argv, int argc)
 	d = helper(argv);
 	return (d);
 }
+
 static t_stack	*set_next(t_stack **tmp, int counter)
 {
 	t_stack	*tmp3;
@@ -85,4 +86,15 @@ t_stack	*init_stack(char **argv, int count)
 		counter++;
 	}
 	return (set_next(tmp, counter));
+}
+
+char	**reallocate_line(char **line, int i, int *capacity)
+{
+	char	**tmp;
+
+	*capacity *= 2;
+	tmp = malloc(sizeof(char *) * *capacity);
+	checker_helper(tmp, i, line);
+	free(line);
+	return (tmp);
 }

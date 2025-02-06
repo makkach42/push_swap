@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   swap.c                                             :+:      :+:    :+:   */
+/*   swap_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: makkach <makkach@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 18:30:30 by makkach           #+#    #+#             */
-/*   Updated: 2025/02/06 16:23:35 by makkach          ###   ########.fr       */
+/*   Updated: 2025/02/06 16:27:15 by makkach          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "checker_bonus.h"
 
 static void	swap(t_stack *c)
 {
@@ -23,21 +23,18 @@ static void	swap(t_stack *c)
 	c->next->data = tmp;
 }
 
-void	sa(t_stack *s)
+void	sa_bonus(t_stack *s)
 {
 	swap(s);
-	write(1, "sa\n", 3);
 }
 
-void	sb(t_stack *s)
+void	sb_bonus(t_stack *s)
 {
 	swap(s);
-	write(1, "sb\n", 3);
 }
 
-void	ss(t_stack *a, t_stack *b)
+void	ss_bonus(t_stack *a, t_stack *b)
 {
 	swap(a);
 	swap(b);
-	write(1, "ss\n", 3);
 }

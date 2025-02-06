@@ -6,7 +6,7 @@
 /*   By: makkach <makkach@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 14:43:43 by makkach           #+#    #+#             */
-/*   Updated: 2025/02/01 17:01:55 by makkach          ###   ########.fr       */
+/*   Updated: 2025/02/06 10:27:37 by makkach          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,15 +23,7 @@ void	sort_algo(t_stack **a, t_stack **b)
 	size = stack_lenth(b);
 	while (size > 0)
 	{
-		tmp = *b;
-		max = -1;
-		counter = 0;
-		while (tmp)
-		{
-			if (tmp->index > max)
-				max = tmp->index;
-			tmp = tmp->next;
-		}
+		algo_helper3(tmp, &max, &counter, b);
 		tmp = *b;
 		while (tmp && tmp->index != max)
 		{
@@ -57,7 +49,6 @@ void	less_than_100(t_stack **a, t_stack **b)
 	size = stack_lenth(a);
 	chunk_size = 15;
 	i = 0;
-	indexing(*a);
 	while (*a)
 	{
 		if ((*a)->index <= i)
@@ -87,7 +78,6 @@ void	more_than_100(t_stack **a, t_stack **b)
 	size = stack_lenth(a);
 	chunk_size = 42;
 	i = 0;
-	indexing(*a);
 	while (*a)
 	{
 		if ((*a)->index <= i)
@@ -110,6 +100,7 @@ void	more_than_100(t_stack **a, t_stack **b)
 
 void	sort_stack(t_stack **a, t_stack **b, int argc)
 {
+	indexing(*a);
 	if (argc > 100)
 		more_than_100(a, b);
 	else if (argc <= 100)

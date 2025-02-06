@@ -1,20 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   checker_bonus.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: makkach <makkach@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 14:50:35 by makkach           #+#    #+#             */
-/*   Updated: 2025/02/06 15:21:30 by makkach          ###   ########.fr       */
+/*   Updated: 2025/02/06 16:01:45 by makkach          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#ifndef CHECKER_BONUS_H
+# define CHECKER_BONUS_H
 # include <limits.h>
 # include <unistd.h>
 # include <stdlib.h>
+
+# define BUFFER_SIZE 42
 
 typedef struct s_stack
 {
@@ -35,17 +37,17 @@ int		range_check(char *str);
 int		ifsorted(t_stack **a);
 void	sortthree(t_stack **c);
 int		stack_lenth(t_stack **c);
-void	sa(t_stack *s);
-void	sb(t_stack *s);
-void	ss(t_stack *a, t_stack *b);
-void	pa(t_stack **src, t_stack **dest);
-void	pb(t_stack **src, t_stack **dest);
-void	ra(t_stack **c);
-void	rb(t_stack **c);
-void	rr(t_stack **a, t_stack **b);
-void	rra(t_stack **c);
-void	rrb(t_stack **c);
-void	rrr(t_stack **a, t_stack **b);
+void	sa_bonus(t_stack *s);
+void	sb_bonus(t_stack *s);
+void	ss_bonus(t_stack *a, t_stack *b);
+void	pa_bonus(t_stack **src, t_stack **dest);
+void	pb_bonus(t_stack **src, t_stack **dest);
+void	ra_bonus(t_stack **c);
+void	rb_bonus(t_stack **c);
+void	rr_bonus(t_stack **a, t_stack **b);
+void	rra_bonus(t_stack **c);
+void	rrb_bonus(t_stack **c);
+void	rrr_bonus(t_stack **a, t_stack **b);
 void	sort_stack(t_stack **a, t_stack **b, int argc);
 int		empty_string_check(char **argv, int argc);
 void	indexing(t_stack *c);
@@ -55,6 +57,11 @@ void	algo_helper(t_stack **b, int max);
 void	algo_helper2(t_stack **b, int max);
 char	*get_next_line(int fd);
 char	*ft_strchr(const char *s, int c);
-void	algo_helper3(t_stack *tmp, int *max, int *counter, t_stack **b);
+t_stack	*init_stack(char **argv, int count);
+int		ft_strncmp(char *str1, char *str2, size_t n);
+void	free_operations(char **operations);
+void	checker_helper(char **tmp, int i, char **line);
+void	last_free(t_stack **a, char **operations);
+char	**reallocate_line(char **line, int i, int *capacity);
 
 #endif

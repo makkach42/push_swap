@@ -6,7 +6,7 @@
 /*   By: makkach <makkach@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 10:17:29 by makkach           #+#    #+#             */
-/*   Updated: 2025/02/01 17:03:12 by makkach          ###   ########.fr       */
+/*   Updated: 2025/02/06 10:28:15 by makkach          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,4 +70,17 @@ void	algo_helper2(t_stack **b, int max)
 {
 	while ((*b)->index != max)
 		rrb(b);
+}
+
+void	algo_helper3(t_stack *tmp, int *max, int *counter, t_stack **b)
+{
+	tmp = *b;
+	*max = -1;
+	*counter = 0;
+	while (tmp)
+	{
+		if (tmp->index > *max)
+			*max = tmp->index;
+		tmp = tmp->next;
+	}
 }
