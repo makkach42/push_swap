@@ -6,7 +6,7 @@
 /*   By: makkach <makkach@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/02 09:58:31 by makkach           #+#    #+#             */
-/*   Updated: 2025/02/06 16:30:48 by makkach          ###   ########.fr       */
+/*   Updated: 2025/02/06 17:18:46 by makkach          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,24 +29,15 @@ static void	execute_operation(char **line, t_stack **a, t_stack **b)
 	i = 0;
 	while (line[i])
 	{
-		if (ft_strncmp(line[i], "sa", 2) == 0)
-			sa_bonus(*a);
-		else if (ft_strncmp(line[i], "sb", 2) == 0)
-			sb_bonus(*b);
-		else if (ft_strncmp(line[i], "ra", 2) == 0)
-			ra_bonus(a);
-		else if (ft_strncmp(line[i], "rb", 2) == 0)
-			rb_bonus(b);
-		else if (ft_strncmp(line[i], "rra", 3) == 0)
-			rra_bonus(a);
-		else if (ft_strncmp(line[i], "rrb", 3) == 0)
-			rrb_bonus(b);
-		else if (ft_strncmp(line[i], "pa", 2) == 0)
-			pa_bonus(b, a);
-		else if (ft_strncmp(line[i], "pb", 2) == 0)
-			pb_bonus(a, b);
-		else
-			return ;
+		handle_swap_operations(line[i], a, b);
+		handle_rotate_operations(line[i], a, b);
+		handle_reverse_rotate_operations(line[i], a, b);
+		handle_push_operations(line[i], a, b);
+		if (!is_valid_operation(line[i]))
+		{
+			write(2, "ERROR\n", 6);
+			exit(1);
+		}
 		i++;
 	}
 }

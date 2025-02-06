@@ -6,7 +6,7 @@
 /*   By: makkach <makkach@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 14:50:35 by makkach           #+#    #+#             */
-/*   Updated: 2025/02/06 16:01:45 by makkach          ###   ########.fr       */
+/*   Updated: 2025/02/06 17:18:28 by makkach          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,5 +63,10 @@ void	free_operations(char **operations);
 void	checker_helper(char **tmp, int i, char **line);
 void	last_free(t_stack **a, char **operations);
 char	**reallocate_line(char **line, int i, int *capacity);
+void	handle_swap_operations(char *op, t_stack **a, t_stack **b);
+void	handle_rotate_operations(char *op, t_stack **a, t_stack **b);
+void	handle_reverse_rotate_operations(char *op, t_stack **a, t_stack **b);
+void	handle_push_operations(char *op, t_stack **a, t_stack **b);
+int		is_valid_operation(char *op);
 
 #endif
