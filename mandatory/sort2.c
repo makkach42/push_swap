@@ -6,7 +6,7 @@
 /*   By: makkach <makkach@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 14:43:43 by makkach           #+#    #+#             */
-/*   Updated: 2025/02/06 10:27:37 by makkach          ###   ########.fr       */
+/*   Updated: 2025/02/07 17:12:56 by makkach          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,15 +40,8 @@ void	sort_algo(t_stack **a, t_stack **b)
 	}
 }
 
-void	less_than_100(t_stack **a, t_stack **b)
+void	push_to_b(t_stack **a, t_stack **b, int chunk_size, int i)
 {
-	int	i;
-	int	size;
-	int	chunk_size;
-
-	size = stack_lenth(a);
-	chunk_size = 15;
-	i = 0;
 	while (*a)
 	{
 		if ((*a)->index <= i)
@@ -63,9 +56,23 @@ void	less_than_100(t_stack **a, t_stack **b)
 			pb(a, b);
 			i++;
 		}
+		else if (ft_mini_sort(*a) == 1)
+			rra(a);
 		else if (*a)
 			ra(a);
 	}
+}
+
+void	less_than_100(t_stack **a, t_stack **b)
+{
+	int	i;
+	int	size;
+	int	chunk_size;
+
+	size = stack_lenth(a);
+	chunk_size = 15;
+	i = 0;
+	push_to_b(a, b, chunk_size, i);
 	sort_algo(a, b);
 }
 
@@ -78,23 +85,7 @@ void	more_than_100(t_stack **a, t_stack **b)
 	size = stack_lenth(a);
 	chunk_size = 42;
 	i = 0;
-	while (*a)
-	{
-		if ((*a)->index <= i)
-		{
-			pb(a, b);
-			if (*b && (*b)->index != i)
-				rb(b);
-			i++;
-		}
-		else if ((*a)->index <= (i + chunk_size))
-		{
-			pb(a, b);
-			i++;
-		}
-		else if (*a)
-			ra(a);
-	}
+	push_to_b(a, b, chunk_size, i);
 	sort_algo(a, b);
 }
 

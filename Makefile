@@ -6,11 +6,11 @@
 #    By: makkach <makkach@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/09 10:43:12 by makkach           #+#    #+#              #
-#    Updated: 2025/02/03 19:02:08 by makkach          ###   ########.fr        #
+#    Updated: 2025/02/07 16:57:07 by makkach          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRC_DIR = src
+SRC_DIR = mandatory
 BONUS_DIR = bonus
 
 source = $(wildcard $(SRC_DIR)/*.c)

@@ -6,7 +6,7 @@
 /*   By: makkach <makkach@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 14:50:35 by makkach           #+#    #+#             */
-/*   Updated: 2025/02/06 15:21:30 by makkach          ###   ########.fr       */
+/*   Updated: 2025/02/07 17:02:14 by makkach          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,5 +56,9 @@ void	algo_helper2(t_stack **b, int max);
 char	*get_next_line(int fd);
 char	*ft_strchr(const char *s, int c);
 void	algo_helper3(t_stack *tmp, int *max, int *counter, t_stack **b);
+int		ft_mini_sort(t_stack *list);
+void	sort(t_stack **a);
+void	sort_five(t_stack **a);
+void	sort_foor(t_stack **a);
 
 #endif

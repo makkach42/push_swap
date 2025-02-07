@@ -6,7 +6,7 @@
 /*   By: makkach <makkach@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 14:50:00 by makkach           #+#    #+#             */
-/*   Updated: 2025/02/06 15:49:04 by makkach          ###   ########.fr       */
+/*   Updated: 2025/02/07 17:03:37 by makkach          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,26 +93,20 @@ int	main(int argc, char **argv)
 	t_stack	*a;
 	t_stack	*b;
 
-	a = NULL;
-	b = NULL;
 	if (argc == 1)
 		return (0);
 	if (empty_string_check(argv, argc) == 1)
-		return (write(1, "ERROR\n", 6), 1);
+		return (write(2, "Error\n", 6), 1);
 	argv = splitter_joinner(argv, argc);
 	argc = count_args(argv);
 	if (pars(argv, argc) == 1)
-		return (write(1, "ERROR\n", 6), 1);
+		return (write(2, "Error\n", 6), argv_free(argv), 1);
 	a = init_stack(argv, argc);
 	argv_free(argv);
 	if (dup_checker(&a) == 1)
-		return (write(1, "ERROR\n", 6), 1);
+		return (write(2, "Error\n", 6), free_list(&a), 1);
 	if (ifsorted(&a) == 1)
 		return (0);
-	if (stack_lenth(&a) == 2)
-		return (sa(a), free_list(&a), 0);
-	else if (stack_lenth(&a) == 3)
-		return (sortthree(&a), free_list(&a), 0);
-	else
-		return (sort_stack(&a, &b, argc), free_list(&a), 0);
+	sort(&a);
+	return (sort_stack(&a, &b, argc), free_list(&a), 0);
 }
