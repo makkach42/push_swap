@@ -6,7 +6,7 @@
 /*   By: makkach <makkach@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 10:24:52 by makkach           #+#    #+#             */
-/*   Updated: 2025/02/06 15:20:55 by makkach          ###   ########.fr       */
+/*   Updated: 2025/02/08 16:43:12 by makkach          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,8 @@ int	ifsorted(t_stack **a)
 	t_stack	*next;
 	t_stack	**tmp;
 
+	if (!a || !(*a))
+		return (0);
 	tmp = a;
 	current = *tmp;
 	next = NULL;

@@ -6,7 +6,7 @@
 /*   By: makkach <makkach@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 18:07:53 by makkach           #+#    #+#             */
-/*   Updated: 2025/02/01 16:59:03 by makkach          ###   ########.fr       */
+/*   Updated: 2025/02/08 16:30:55 by makkach          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ static void	reverse(t_stack **c)
 	t_stack	*tail;
 	t_stack	*beforetail;
 
+	if (!c || !(*c))
+		return ;
 	head = *c;
 	tail = head;
 	beforetail = head;
