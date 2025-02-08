@@ -6,11 +6,12 @@
 /*   By: makkach <makkach@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/02 09:58:31 by makkach           #+#    #+#             */
-/*   Updated: 2025/02/06 17:18:46 by makkach          ###   ########.fr       */
+/*   Updated: 2025/02/08 11:02:52 by makkach          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "checker_bonus.h"
+
 
 static int	count_args(char **nums)
 {

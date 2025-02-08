@@ -6,7 +6,7 @@
 /*   By: makkach <makkach@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 18:30:30 by makkach           #+#    #+#             */
-/*   Updated: 2025/02/06 16:27:15 by makkach          ###   ########.fr       */
+/*   Updated: 2025/02/08 10:54:40 by makkach          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ static void	swap(t_stack *c)
 {
 	int	tmp;
 
-	if (!c || !c->next)
+	if (c == NULL || c->next == NULL)
 		return ;
 	tmp = c->data;
 	c->data = c->next->data;

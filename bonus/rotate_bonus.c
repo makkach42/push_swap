@@ -6,7 +6,7 @@
 /*   By: makkach <makkach@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/18 12:50:05 by makkach           #+#    #+#             */
-/*   Updated: 2025/02/06 15:55:18 by makkach          ###   ########.fr       */
+/*   Updated: 2025/02/08 10:54:01 by makkach          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ static void	rotate(t_stack **c)
 	t_stack	*head;
 	t_stack	*tail;
 
+	if (!c || !*c || !(*c)->next)
+		return ;
 	head = *c;
 	tail = head;
 	while (tail->next)
