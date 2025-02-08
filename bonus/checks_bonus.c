@@ -6,29 +6,13 @@
 /*   By: makkach <makkach@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 10:24:52 by makkach           #+#    #+#             */
-/*   Updated: 2025/02/08 16:43:12 by makkach          ###   ########.fr       */
+/*   Updated: 2025/02/08 20:21:50 by makkach          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "checker_bonus.h"
 
-int	pars(char **argv, int argc)
-{
-	int	i;
-
-	i = 0;
-	if (!argv)
-		return (0);
-	while (i < argc)
-	{
-		if (valid(argv[i]) == 0 || range_check(argv[i]) == 0)
-			return (1);
-		i++;
-	}
-	return (0);
-}
-
-int	valid(char *str)
+static int	valid(char *str)
 {
 	int	i;
 
@@ -50,13 +34,29 @@ int	valid(char *str)
 	return (1);
 }
 
-int	range_check(char *str)
+static int	range_check(char *str)
 {
 	if (ft_atoi(str) > INT_MAX || ft_atoi(str) < INT_MIN)
 	{
 		return (0);
 	}
 	return (1);
+}
+
+int	pars(char **argv, int argc)
+{
+	int	i;
+
+	i = 0;
+	if (!argv)
+		return (0);
+	while (i < argc)
+	{
+		if (valid(argv[i]) == 0 || range_check(argv[i]) == 0)
+			return (1);
+		i++;
+	}
+	return (0);
 }
 
 int	ifsorted(t_stack **a)

@@ -6,13 +6,13 @@
 /*   By: makkach <makkach@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 10:17:29 by makkach           #+#    #+#             */
-/*   Updated: 2025/02/06 10:28:15 by makkach          ###   ########.fr       */
+/*   Updated: 2025/02/08 18:45:51 by makkach          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_stack	*find_min_for_index(t_stack *c)
+static t_stack	*find_min_for_index(t_stack *c)
 {
 	t_stack	*current;
 	t_stack	*min_node;

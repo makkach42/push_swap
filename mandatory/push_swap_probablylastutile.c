@@ -6,13 +6,13 @@
 /*   By: makkach <makkach@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 18:08:34 by makkach           #+#    #+#             */
-/*   Updated: 2025/02/01 16:58:24 by makkach          ###   ########.fr       */
+/*   Updated: 2025/02/08 18:46:32 by makkach          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_stack	*find_highest(t_stack **c)
+static t_stack	*find_highest(t_stack **c)
 {
 	t_stack	*current;
 	t_stack	*highest;

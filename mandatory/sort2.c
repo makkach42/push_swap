@@ -6,13 +6,13 @@
 /*   By: makkach <makkach@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 14:43:43 by makkach           #+#    #+#             */
-/*   Updated: 2025/02/07 17:12:56 by makkach          ###   ########.fr       */
+/*   Updated: 2025/02/08 18:45:35 by makkach          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	sort_algo(t_stack **a, t_stack **b)
+static void	sort_algo(t_stack **a, t_stack **b)
 {
 	t_stack	*tmp;
 	int		len;
@@ -40,7 +40,7 @@ void	sort_algo(t_stack **a, t_stack **b)
 	}
 }
 
-void	push_to_b(t_stack **a, t_stack **b, int chunk_size, int i)
+static void	push_to_b(t_stack **a, t_stack **b, int chunk_size, int i)
 {
 	while (*a)
 	{
@@ -63,7 +63,7 @@ void	push_to_b(t_stack **a, t_stack **b, int chunk_size, int i)
 	}
 }
 
-void	less_than_100(t_stack **a, t_stack **b)
+static void	less_than_100(t_stack **a, t_stack **b)
 {
 	int	i;
 	int	size;
@@ -76,7 +76,7 @@ void	less_than_100(t_stack **a, t_stack **b)
 	sort_algo(a, b);
 }
 
-void	more_than_100(t_stack **a, t_stack **b)
+static void	more_than_100(t_stack **a, t_stack **b)
 {
 	int	i;
 	int	size;

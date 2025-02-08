@@ -6,13 +6,13 @@
 /*   By: makkach <makkach@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 14:42:42 by makkach           #+#    #+#             */
-/*   Updated: 2025/02/07 17:05:22 by makkach          ###   ########.fr       */
+/*   Updated: 2025/02/08 18:53:40 by makkach          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	sort_five(t_stack **a)
+static void	sort_five(t_stack **a)
 {
 	t_stack	*b;
 
@@ -29,6 +29,23 @@ void	sort_five(t_stack **a)
 	if (b->index < b->next->index)
 		sb(b);
 	pa(&b, a);
+	pa(&b, a);
+}
+
+static void	sort_foor(t_stack **a)
+{
+	t_stack	*b;
+
+	b = NULL;
+	indexing(*a);
+	while (stack_lenth(&b) < 1)
+	{
+		if ((*a)->index == 0)
+			pb(a, &b);
+		else
+			ra(a);
+	}
+	sortthree(a);
 	pa(&b, a);
 }
 
@@ -58,23 +75,6 @@ void	sort(t_stack **a)
 		free_list(a);
 		exit(1);
 	}
-}
-
-void	sort_foor(t_stack **a)
-{
-	t_stack	*b;
-
-	b = NULL;
-	indexing(*a);
-	while (stack_lenth(&b) < 1)
-	{
-		if ((*a)->index == 0)
-			pb(a, &b);
-		else
-			ra(a);
-	}
-	sortthree(a);
-	pa(&b, a);
 }
 
 int	ft_mini_sort(t_stack *list)

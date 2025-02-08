@@ -6,27 +6,11 @@
 /*   By: makkach <makkach@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 10:24:52 by makkach           #+#    #+#             */
-/*   Updated: 2025/02/01 16:57:20 by makkach          ###   ########.fr       */
+/*   Updated: 2025/02/08 20:21:13 by makkach          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-int	pars(char **argv, int argc)
-{
-	int	i;
-
-	i = 0;
-	if (!argv)
-		return (0);
-	while (i < argc)
-	{
-		if (valid(argv[i]) == 0 || range_check(argv[i]) == 0)
-			return (1);
-		i++;
-	}
-	return (0);
-}
 
 int	valid(char *str)
 {
@@ -57,6 +41,22 @@ int	range_check(char *str)
 		return (0);
 	}
 	return (1);
+}
+
+int	pars(char **argv, int argc)
+{
+	int	i;
+
+	i = 0;
+	if (!argv)
+		return (0);
+	while (i < argc)
+	{
+		if (valid(argv[i]) == 0 || range_check(argv[i]) == 0)
+			return (1);
+		i++;
+	}
+	return (0);
 }
 
 int	ifsorted(t_stack **a)

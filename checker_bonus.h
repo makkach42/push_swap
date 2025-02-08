@@ -6,7 +6,7 @@
 /*   By: makkach <makkach@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 14:50:35 by makkach           #+#    #+#             */
-/*   Updated: 2025/02/08 11:09:42 by makkach          ###   ########.fr       */
+/*   Updated: 2025/02/08 20:22:32 by makkach          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,6 @@ size_t	ft_strlen( char *str);
 char	**splitter_joinner(char **argv, int argc);
 long	ft_atoi(char *str);
 int		pars(char **argv, int argc);
-int		valid(char *str);
-int		range_check(char *str);
 int		ifsorted(t_stack **a);
 void	sortthree(t_stack **c);
 int		stack_lenth(t_stack **c);
