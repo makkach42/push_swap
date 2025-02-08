@@ -6,7 +6,7 @@
 /*   By: makkach <makkach@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 14:50:35 by makkach           #+#    #+#             */
-/*   Updated: 2025/02/08 18:52:01 by makkach          ###   ########.fr       */
+/*   Updated: 2025/02/08 20:27:39 by makkach          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 # include <limits.h>
 # include <unistd.h>
 # include <stdlib.h>
-# include <stdio.h>
 
 typedef struct s_stack
 {
