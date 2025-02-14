@@ -6,7 +6,7 @@
 /*   By: makkach <makkach@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/02 09:53:18 by makkach           #+#    #+#             */
-/*   Updated: 2025/02/06 15:21:01 by makkach          ###   ########.fr       */
+/*   Updated: 2025/02/13 13:32:32 by makkach          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,6 +94,8 @@ char	**reallocate_line(char **line, int i, int *capacity)
 
 	*capacity *= 2;
 	tmp = malloc(sizeof(char *) * *capacity);
+	if (!tmp)
+		return (NULL);
 	checker_helper(tmp, i, line);
 	free(line);
 	return (tmp);

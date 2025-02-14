@@ -6,7 +6,7 @@
 /*   By: makkach <makkach@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/02 09:58:31 by makkach           #+#    #+#             */
-/*   Updated: 2025/02/08 16:51:37 by makkach          ###   ########.fr       */
+/*   Updated: 2025/02/13 13:37:57 by makkach          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@ static void	execute_operation(char **line, t_stack **a, t_stack **b)
 	int	i;
 
 	i = 0;
+	if (!line)
+		return ;
 	while (line[i])
 	{
 		handle_swap_operations(line[i], a, b);
@@ -61,13 +63,14 @@ static char	**read_operations(void)
 		if (i >= capacity - 1)
 		{
 			tmp = reallocate_line(line, i, &capacity);
+			if (!tmp)
+				return (NULL);
 			line = tmp;
 		}
 		line[i++] = read_line;
 		read_line = get_next_line(0);
 	}
-	line[i] = NULL;
-	return (line);
+	return (line[i] = NULL, line);
 }
 
 static int	dup_checker(t_stack **c)

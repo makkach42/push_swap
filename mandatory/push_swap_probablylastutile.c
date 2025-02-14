@@ -6,7 +6,7 @@
 /*   By: makkach <makkach@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 18:08:34 by makkach           #+#    #+#             */
-/*   Updated: 2025/02/08 18:46:32 by makkach          ###   ########.fr       */
+/*   Updated: 2025/02/13 13:29:35 by makkach          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ static t_stack	*find_highest(t_stack **c)
 	tmp = c;
 	current = *tmp;
 	highest = malloc(sizeof(t_stack));
+	if (!highest)
+		return (NULL);
 	highest->data = 0;
 	while (current)
 	{
@@ -44,6 +46,8 @@ void	sortthree(t_stack **c)
 
 	tmp = *c;
 	highest = find_highest(c);
+	if (!highest)
+		return ;
 	if ((*c)->data == highest->data)
 		ra(c);
 	else if ((*c)->next->data == highest->data)
