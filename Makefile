@@ -6,7 +6,7 @@
 #    By: makkach <makkach@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/09 10:43:12 by makkach           #+#    #+#              #
-#    Updated: 2025/02/14 12:49:34 by makkach          ###   ########.fr        #
+#    Updated: 2025/02/15 09:29:46 by makkach          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -48,17 +48,17 @@ NAME = push_swap
 NAME2 = checker
 
 CC = cc
-CFLAGS = -Wall -Werror -Wextra -I. 
+CFLAGS = -Wall -Werror -Wextra
 
 RM = rm -rf
 
 all: $(NAME)
 
-$(NAME): $(objects) push_swap.h
+$(NAME): $(objects) $(SRC_DIR)/push_swap.h
 	$(CC) $(CFLAGS) $(objects) -o $(NAME)
 bonus: $(NAME2)
 
-$(NAME2): $(objects_bonus) checker_bonus.h
+$(NAME2): $(objects_bonus) $(BONUS_DIR)/checker_bonus.h
 	$(CC) $(CFLAGS) $(objects_bonus) -o $(NAME2)
 
 clean:
