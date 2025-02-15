@@ -6,7 +6,7 @@
 /*   By: makkach <makkach@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/02 09:58:31 by makkach           #+#    #+#             */
-/*   Updated: 2025/02/15 09:43:11 by makkach          ###   ########.fr       */
+/*   Updated: 2025/02/15 10:20:24 by makkach          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,8 +113,6 @@ int	main(int argc, char *argv[])
 	a = init_stack(argv, argc);
 	if (dup_checker(&a) == 1)
 		return (write(2, "Error\n", 6), argv_free(argv), free_list(&a), 1);
-	if (ifsorted(&a) == 1)
-		return (free_list(&a), argv_free(argv), 0);
 	argv_free(argv);
 	operations = read_operations();
 	execute_operation(operations, &a, &b);
