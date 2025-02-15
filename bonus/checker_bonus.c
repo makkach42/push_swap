@@ -6,7 +6,7 @@
 /*   By: makkach <makkach@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/02 09:58:31 by makkach           #+#    #+#             */
-/*   Updated: 2025/02/15 09:35:13 by makkach          ###   ########.fr       */
+/*   Updated: 2025/02/15 09:43:11 by makkach          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ static void	execute_operation(char **line, t_stack **a, t_stack **b)
 		handle_push_operations(line[i], a, b);
 		if (!is_valid_operation(line[i]))
 		{
-			write(2, "ERROR\n", 6);
+			write(2, "Error\n", 6);
 			exit(1);
 		}
 		i++;
@@ -105,14 +105,14 @@ int	main(int argc, char *argv[])
 	if (argc < 2)
 		return (0);
 	if (empty_string_check(argv, argc) == 1)
-		return (write(1, "ERROR\n", 6), 1);
+		return (write(2, "Error\n", 6), 1);
 	argv = splitter_joinner(argv, argc);
 	argc = count_args(argv);
 	if (pars(argv, argc) == 1)
-		return (write(1, "ERROR\n", 6), argv_free(argv), 1);
+		return (write(2, "Error\n", 6), argv_free(argv), 1);
 	a = init_stack(argv, argc);
 	if (dup_checker(&a) == 1)
-		return (write(1, "ERROR\n", 6), argv_free(argv), free_list(&a), 1);
+		return (write(2, "Error\n", 6), argv_free(argv), free_list(&a), 1);
 	if (ifsorted(&a) == 1)
 		return (free_list(&a), argv_free(argv), 0);
 	argv_free(argv);
