@@ -6,7 +6,7 @@
 /*   By: makkach <makkach@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/02 09:58:31 by makkach           #+#    #+#             */
-/*   Updated: 2025/02/13 13:37:57 by makkach          ###   ########.fr       */
+/*   Updated: 2025/02/15 09:35:13 by makkach          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,7 +118,7 @@ int	main(int argc, char *argv[])
 	argv_free(argv);
 	operations = read_operations();
 	execute_operation(operations, &a, &b);
-	if (ifsorted(&a) == 1)
+	if (ifsorted(&a) == 1 && !b)
 		return (write(1, "OK\n", 3), last_free(&a, operations), 0);
 	else if (ifsorted(&a) == 0)
 		return (write(1, "KO\n", 3), last_free(&a, operations), 0);
