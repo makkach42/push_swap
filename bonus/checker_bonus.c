@@ -6,7 +6,7 @@
 /*   By: makkach <makkach@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/02 09:58:31 by makkach           #+#    #+#             */
-/*   Updated: 2025/02/15 10:20:24 by makkach          ###   ########.fr       */
+/*   Updated: 2025/02/15 11:35:02 by makkach          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ static void	execute_operation(char **line, t_stack **a, t_stack **b)
 		if (!is_valid_operation(line[i]))
 		{
 			write(2, "Error\n", 6);
+			free_list(a);
 			exit(1);
 		}
 		i++;
@@ -116,8 +117,9 @@ int	main(int argc, char *argv[])
 	argv_free(argv);
 	operations = read_operations();
 	execute_operation(operations, &a, &b);
+	free_operations(operations);
 	if (ifsorted(&a) == 1 && !b)
-		return (write(1, "OK\n", 3), last_free(&a, operations), 0);
+		return (write(1, "OK\n", 3), free_list(&a), 0);
 	else if (ifsorted(&a) == 0)
-		return (write(1, "KO\n", 3), last_free(&a, operations), 0);
+		return (write(1, "KO\n", 3), free_list(&a), 0);
 }
