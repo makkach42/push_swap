@@ -6,7 +6,7 @@
 /*   By: makkach <makkach@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 14:50:00 by makkach           #+#    #+#             */
-/*   Updated: 2025/02/07 17:03:37 by makkach          ###   ########.fr       */
+/*   Updated: 2025/02/18 11:42:13 by makkach          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,7 +106,8 @@ int	main(int argc, char **argv)
 	if (dup_checker(&a) == 1)
 		return (write(2, "Error\n", 6), free_list(&a), 1);
 	if (ifsorted(&a) == 1)
-		return (0);
-	sort(&a);
+		return (free_list(&a), 0);
+	if (stack_lenth(&a) >= 2 && stack_lenth(&a) <= 5)
+		return (sort(&a), 0);
 	return (sort_stack(&a, &b, argc), free_list(&a), 0);
 }

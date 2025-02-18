@@ -6,7 +6,7 @@
 /*   By: makkach <makkach@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 15:51:23 by makkach           #+#    #+#             */
-/*   Updated: 2025/02/06 15:20:16 by makkach          ###   ########.fr       */
+/*   Updated: 2025/02/18 11:43:20 by makkach          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,8 +76,9 @@ void	checker_helper(char **tmp, int i, char **line)
 	}
 }
 
-void	last_free(t_stack **a, char **operations)
+void	last_free(t_stack **a, t_stack**b, char **operations)
 {
 	free_list(a);
+	free_list(b);
 	free_operations(operations);
 }

@@ -6,7 +6,7 @@
 /*   By: makkach <makkach@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 14:50:35 by makkach           #+#    #+#             */
-/*   Updated: 2025/02/14 12:51:50 by makkach          ###   ########.fr       */
+/*   Updated: 2025/02/18 11:43:50 by makkach          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ t_stack	*init_stack(char **argv, int count);
 int		ft_strncmp(char *str1, char *str2, size_t n);
 void	free_operations(char **operations);
 void	checker_helper(char **tmp, int i, char **line);
-void	last_free(t_stack **a, char **operations);
+void	last_free(t_stack **a, t_stack**b, char **operations);
 char	**reallocate_line(char **line, int i, int *capacity);
 void	handle_swap_operations(char *op, t_stack **a, t_stack **b);
 void	handle_rotate_operations(char *op, t_stack **a, t_stack **b);

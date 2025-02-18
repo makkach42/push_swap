@@ -6,7 +6,7 @@
 /*   By: makkach <makkach@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 14:42:42 by makkach           #+#    #+#             */
-/*   Updated: 2025/02/08 18:53:40 by makkach          ###   ########.fr       */
+/*   Updated: 2025/02/18 11:14:47 by makkach          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,25 +55,25 @@ void	sort(t_stack **a)
 	{
 		sort_five(a);
 		free_list(a);
-		exit(1);
+		exit(0);
 	}
 	if (stack_lenth(a) == 4)
 	{
 		sort_foor(a);
 		free_list(a);
-		exit(1);
+		exit(0);
 	}
 	if (stack_lenth(a) == 3)
 	{
 		sortthree(a);
 		free_list(a);
-		exit(1);
+		exit(0);
 	}
 	if (stack_lenth(a) == 2)
 	{
 		sa(*a);
 		free_list(a);
-		exit(1);
+		exit(0);
 	}
 }
 
