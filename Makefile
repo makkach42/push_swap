@@ -68,3 +68,4 @@ fclean: clean
 	$(RM) push_swap checker
 
 re: fclean all
+
